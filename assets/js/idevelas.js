@@ -95,9 +95,20 @@
         });
     }
 
+    function ivGoBackBtn() {
+        const goBackBtns = document.querySelectorAll('.go-back-btn');
+        Array.from(goBackBtns).forEach(btn => {
+            btn.addEventListener('click', e => {
+                e.preventDefault();
+                history.back();
+            });
+        });
+    }
+
 
     document.addEventListener('DOMContentLoaded', function () {
         ivFormsValidation();
         iv_newsletter_form();
+        ivGoBackBtn();
     });
 })();
