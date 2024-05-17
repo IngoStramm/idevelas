@@ -12,15 +12,15 @@ function iv_frontend_scripts()
         wp_enqueue_script('idevelas-livereload', 'http://localhost:35729/livereload.js?snipver=1', array(), null, true);
     endif;
 
-    // wp_register_script('list-js', IV_URL . '/assets/js/list' . $min . '.js', array('jquery'), $version, array('strategy' => 'deffer', 'in_footer' => true));
+    // wp_register_script('list-js', IV_URL . '/assets/js/list' . $min . '.js', array('jquery'), $version, array('strategy' => 'defer', 'in_footer' => true));
 
-    wp_register_script('imask-script', IV_URL . '/assets/js/imask.min.js', array('jquery'), $version, array('strategy' => 'deffer', 'in_footer' => true));
+    wp_register_script('imask-script', IV_URL . '/assets/js/imask.min.js', array('jquery'), $version, array('strategy' => 'defer', 'in_footer' => true));
 
     wp_register_script('bootstrap-script', IV_URL . '/assets/js/bootstrap.bundle.min.js', array('jquery'), $version, true);
 
-    wp_register_script('list-js', IV_URL . '/assets/js/list' . $min . '.js', array('jquery'), $version, array('strategy' => 'deffer', 'in_footer' => true));
+    wp_register_script('list-js', IV_URL . '/assets/js/list' . $min . '.js', array('jquery'), $version, array('strategy' => 'defer', 'in_footer' => true));
 
-    wp_register_script('idevelas-script', IV_URL . '/assets/js/idevelas' . $min . '.js', array('jquery', 'bootstrap-script', 'imask-script', 'list-js'), $version, array('strategy' => 'deffer', 'in_footer' => true));
+    wp_register_script('idevelas-script', IV_URL . '/assets/js/idevelas' . $min . '.js', array('jquery', 'bootstrap-script', 'imask-script', 'list-js'), $version, array('strategy' => 'defer', 'in_footer' => true));
 
     wp_enqueue_script('idevelas-script');
 
@@ -47,9 +47,9 @@ function iv_admin_scripts()
 
     $min = (in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1', '10.0.0.3'))) ? '' : '.min';
 
-    wp_register_script('imask-script', IV_URL . '/assets/js/imask.min.js', array('jquery'), $version, array('strategy' => 'deffer', 'in_footer' => true));
+    wp_register_script('imask-script', IV_URL . '/assets/js/imask.min.js', array('jquery'), $version, array('strategy' => 'defer', 'in_footer' => true));
 
-    wp_register_script('idevelas-admin-script', IV_URL . '/assets/js/idevelas-admin' . $min . '.js', array('jquery', 'imask-script'), $version, array('strategy' => 'deffer', 'in_footer' => true));
+    wp_register_script('idevelas-admin-script', IV_URL . '/assets/js/idevelas-admin' . $min . '.js', array('jquery', 'imask-script'), $version, array('strategy' => 'defer', 'in_footer' => true));
 
     wp_enqueue_script('idevelas-admin-script');
 

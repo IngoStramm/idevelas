@@ -7,7 +7,7 @@ $account_page_id = iv_get_page_id('account');
 $login_page_id = iv_get_page_id('login');
 ?>
 <?php get_template_part('template-parts/header/site-header', 'topbar'); ?>
-<header class="<?php echo esc_attr($wrapper_classes); ?>">
+<header id="site-header" class="<?php echo esc_attr($wrapper_classes); ?>">
     <nav class="navbar navbar-expand-md" id="first-header-navbar">
         <div class="container">
 

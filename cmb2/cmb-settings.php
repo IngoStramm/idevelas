@@ -46,6 +46,14 @@ function iv_register_theme_options_metabox()
     ));
 
     $cmb_options->add_field(array(
+        'name'    => esc_html__('E-mails que receberão as mensagens do formulário de newsletter.', 'iv'),
+        'id'      => 'iv_newsletter_form_emails',
+        'type'    => 'text_email',
+        'repeatable'    => true,
+        'required'      => true
+    ));
+
+    $cmb_options->add_field(array(
         'name'    => esc_html__('Texto da barra no topo do site.', 'iv'),
         'description' => esc_html__('Se este campo estiver vazio, a barra no topo do site não será exibida.'),
         'id'      => 'iv_topbar_text',

@@ -1,5 +1,11 @@
 <?php
 
+function iv_debug($a) {
+    echo '<pre>';
+    var_dump($a);
+    echo '</pre>';
+}
+
 /**
  * Pagination.
  *
