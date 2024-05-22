@@ -106,9 +106,94 @@
     }
 
 
+    function ivMultiLevelDropdownMenu() {
+        if (window.innerWidth < 992) {
+
+            // close all inner dropdowns when parent is closed
+            document.querySelectorAll('.navbar .dropdown').forEach(function (everydropdown) {
+                everydropdown.addEventListener('hidden.bs.dropdown', function () {
+                    // after dropdown is hidden, then find all submenus
+                    this.querySelectorAll('.submenu').forEach(function (everysubmenu) {
+                        // hide every submenu as well
+                        everysubmenu.style.display = 'none';
+                    });
+                });
+            });
+
+            document.querySelectorAll('.dropdown-menu a').forEach(function (element) {
+                element.addEventListener('click', function (e) {
+                    let nextEl = this.nextElementSibling;
+                    if (nextEl && nextEl.classList.contains('submenu')) {
+                        // prevent opening link if link needs to open dropdown
+                        e.preventDefault();
+                        if (nextEl.style.display === 'block') {
+                            nextEl.style.display = 'none';
+                        } else {
+                            nextEl.style.display = 'block';
+                        }
+
+                    }
+                });
+            });
+        }
+    }
+
+    function ivProductCarousels() {
+        const carousels = document.querySelectorAll('.product-carousel');
+        for (const carousel of carousels) {
+            const bsCarousel = new bootstrap.Carousel(`#${carousel.id}`);
+        }
+    }
+
     document.addEventListener('DOMContentLoaded', function () {
         ivFormsValidation();
         iv_newsletter_form();
         ivGoBackBtn();
+        ivProductCarousels();
     });
 })();
+
+// jQuery
+jQuery(document).ready(function ($) {
+    function slickCarouselInit() {
+        const nextArrow = `<button type="button" class="slick-next"><svg width="12" height="19" viewBox="0 0 12 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11.2 9.79501L2.2 0.795013L0.399997 2.59501L7.6 9.79501L0.399997 16.995L2.2 18.795L11.2 9.79501Z" fill="white" stroke="white" stroke- width="0.18" /></button>
+        </svg >`;
+        const prevArrow = `<button type="button" class="slick-prev"><svg width="12" height="19" viewBox="0 0 12 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0.799988 9.79501L9.79999 18.795L11.6 16.995L4.39999 9.79501L11.6 2.59501L9.79999 0.795013L0.799988 9.79501Z" fill="white" stroke="white" stroke-width="0.18"/></button>
+        </svg>`;
+
+        const defaultSettings = {
+            infinite: true,
+            dots: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: false,
+            autoplaySpeed: 5000,
+            nextArrow: nextArrow,
+            prevArrow: prevArrow,
+            arrows: true
+        };
+
+        $('.product-slider').slick(defaultSettings);
+
+        $('.produto-depoimentos-carrossel').slick({
+            ...defaultSettings,
+            arrows: false,
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            responsive: [{
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: true
+                }
+            }]
+        });
+
+        $('.produto-historia-carrossel').slick({ ...defaultSettings, arrows: false, autoplay: true });
+    }
+    slickCarouselInit();
+});

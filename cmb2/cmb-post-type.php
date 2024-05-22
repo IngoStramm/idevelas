@@ -1,5 +1,24 @@
 <?php
 
+add_action('cmb2_admin_init', 'iv_cmb_produto_opcoes');
+function iv_cmb_produto_opcoes()
+{
+    $cmb = new_cmb2_box(array(
+        'id'            => 'iv_producto_opcoes_metabox',
+        'title'         => esc_html__('Opções Extras', 'iv'),
+        'object_types'  => array('product'), // Post type
+        'context'       => 'side',
+    ));
+
+
+    $cmb->add_field(array(
+        'name'       => esc_html__('Texto de parcelamento', 'iv'),
+        'id'         => 'iv_product_parcelamento',
+        'type'       => 'text',
+    ));
+}
+
+
 add_action('cmb2_admin_init', 'iv_cmb_produto_depoimentos');
 
 function iv_cmb_produto_depoimentos()
@@ -105,7 +124,11 @@ function iv_cmb_produto_historia()
     $cmb->add_field(array(
         'name'       => esc_html__('Texto da galeria de imagens da seção "História"', 'iv'),
         'id'         => 'iv_produto_historia_gallery_text',
-        'type'       => 'text',
+        'type'       => 'wysiwyg',
+        'options' => array(
+            'textarea_rows' => 3,
+            'media_buttons' => false
+        ),
         // 'show_option_none' => true,
     ));
 }

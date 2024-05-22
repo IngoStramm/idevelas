@@ -62,7 +62,7 @@ class Iv_Walker_Nav_Menu extends Walker_Nav_Menu
         $classes = empty($item->classes) ? array() : (array) $item->classes;
 
         foreach ($classes as $key => $class) {
-            if ($class == 'menu-item-has-children' && $depth == 0) {
+            if ($class === 'menu-item-has-children' && $depth === 0) {
                 $classes[$key] = 'dropdown';
             }
         }

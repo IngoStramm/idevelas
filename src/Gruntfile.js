@@ -194,6 +194,15 @@ module.exports = function (grunt) {
                         dest: '../assets/js/',
                         flatten: true,
                         filter: 'isFile'
+                    },
+                    {
+                        // nonull: true,
+                        cwd: 'node_modules/slick-carousel/slick/', 
+                        expand: true,
+                        src: '**',
+                        dest: '../assets/js/slick',
+                        // flatten: true,
+                        // filter: 'isFile'
                     }
                 ]
             }

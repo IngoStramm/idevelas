@@ -1,15 +1,3 @@
-// Form
-.form-control {
-    border: none;
-    border-radius: 0;
-}
-
-.input-group-text {
-    border: none;
-    border-radius: 0;
-    background-color: $branco;
-}
-
 // Header
 #site-header-topbar {
     background-color: $azul;
@@ -28,6 +16,10 @@
     i {
         color: $azul;
     }
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
 }
 
 .header-widget {
@@ -41,25 +33,6 @@
 .header-cart {
     background-color: $dourado;
     color: $branco;
-}
-
-.navbar-toggler {
-    border: none;
-    outline: none;
-    .hamburger {
-        display: none;
-    }
-    .close {
-        display: block;
-    }
-    &.collapsed {
-        .hamburger {
-            display: block;
-        }
-        .close {
-            display: none;
-        }
-    }
 }
 
 // Footer
@@ -139,14 +112,6 @@
     }
 }
 
-.newsletter-form {
-    .form-control,
-    .btn {
-        border-radius: 5px;
-        padding-block: 0.65em;
-    }
-}
-
 @media (min-width: 768px) {
     // Footer
     #footer {
@@ -162,13 +127,13 @@
         }
     }
     #footer-bottombar {
-    .reclame-aqui-banner {
-        padding-inline: .75rem;
-        svg {
-            max-width: 100%;
+        .reclame-aqui-banner {
+            padding-inline: 0.75rem;
+            svg {
+                max-width: 100%;
+            }
         }
     }
-}
 }
 @media (min-width: 992px) {
     // Header

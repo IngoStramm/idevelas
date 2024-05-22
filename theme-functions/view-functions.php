@@ -54,3 +54,20 @@ function iv_searchform_modal()
     </div>
 <?php
 }
+
+function iv_product_rating_stars($rating)
+{
+    $max_stars = 5;
+    $filled_stars = intval($rating);
+    $blank_stars = 5 - $filled_stars;
+    $output = '';
+    $output .= '<ul class="rating-list">';
+    for ($i = 0; $i < $filled_stars; $i++) {
+        $output .= '<li class="active"><i class="bi bi-star-fill"></i></li>';
+    }
+    for ($i = 0; $i < $blank_stars; $i++) {
+        $output .= '<li><i class="bi bi-star-fill"></i></li>';
+    }
+    $output .= '</ul>';
+    return $output;
+}

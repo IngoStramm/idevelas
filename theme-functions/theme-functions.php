@@ -5,3 +5,4 @@ require_once(IV_DIR . '/theme-functions/utilities-functions.php');
 require_once(IV_DIR . '/theme-functions/breadcrumbs-functions.php');
 require_once(IV_DIR . '/theme-functions/email-functions.php');
 require_once(IV_DIR . '/theme-functions/newsletter-form-functions.php');
+require_once(IV_DIR . '/theme-functions/woocommerce-functions.php');
