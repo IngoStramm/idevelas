@@ -194,6 +194,8 @@ jQuery(document).ready(function ($) {
         });
 
         $('.produto-historia-carrossel').slick({ ...defaultSettings, arrows: false, autoplay: true });
+
+        $('.product-descricao-carrossel').slick({ ...defaultSettings, arrows: false, autoplay: true });
     }
     slickCarouselInit();
 });

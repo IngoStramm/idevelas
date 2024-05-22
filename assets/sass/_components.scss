@@ -306,6 +306,31 @@ form.cart {
     }
 }
 
+.produto-descricao {
+    background-color: $azul-escuro;
+    color: $dourado;
+    padding-block: 80px;
+    text-align: center;
+    h3 {
+        @include font-advent;
+        font-size: 2em;
+        letter-spacing: 1.2em;
+        text-transform: uppercase;
+    }
+    .slick-dots {
+        .slick-active {
+            button {
+                background-color: $branco;
+            }
+        }
+    }
+}
+
+.product-descricao-carrossel {
+    text-align: left;
+    color: $branco;
+}
+
 @media (min-width: 768px) {
     .price {
         &.single-product-price {

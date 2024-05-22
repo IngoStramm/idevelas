@@ -93,5 +93,6 @@ $categoria_pai = $categoria ? get_term($categoria->parent, 'product_cat') : null
 
     <?php get_template_part('template-parts/content/single-product/depoimentos'); ?>
     <?php get_template_part('template-parts/content/single-product/historia'); ?>
+    <?php get_template_part('template-parts/content/single-product/descricao'); ?>
 
 </article><!-- #post-<?php the_ID(); ?> -->

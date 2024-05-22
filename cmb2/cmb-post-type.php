@@ -168,6 +168,13 @@ function iv_cmb_produto_descricao()
     ));
 
     $cmb->add_field(array(
+        'name'       => esc_html__('Título da seção "Descrição"', 'iv'),
+        'id'         => 'iv_produto_descricao_title',
+        'type'       => 'text',
+        // 'show_option_none' => true,
+    ));
+
+    $cmb->add_field(array(
         'name'       => esc_html__('Imagem da seção "Descrição"', 'iv'),
         'id'         => 'iv_produto_descricao_image',
         'type'       => 'file',
