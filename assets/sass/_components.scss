@@ -259,7 +259,8 @@ form.cart {
 
 .produto-depoimentos {
     background-color: $cinza-claro;
-    padding-block: 40px;
+    padding-top: 80px;
+    padding-bottom: 40px;
     text-align: center;
 }
 
@@ -345,6 +346,23 @@ form.cart {
     h4 {
         font-weight: 400;
         font-size: 1.25em;
+    }
+}
+
+.seja-ide {
+    background-color: $branco;
+    text-align: center;
+    padding-block: 80px;
+    h3 {
+        @include font-advent;
+        font-weight: 400;
+        font-size: 1.85em;
+        text-transform: uppercase;
+        letter-spacing: 1em;
+    }
+    p {
+        font-weight: 300;
+        margin-bottom: 0;
     }
 }
 
