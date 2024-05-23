@@ -40,6 +40,139 @@
     }
 }
 
+#offcanvasMinicart {
+    min-height: 100vh;
+    .offcanvas-header {
+        background-color: $cinza-claro;
+    }
+    .widget_shopping_cart_content {
+        .woocommerce-mini-cart {
+            &.cart_list {
+                &.product_list_widget {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    list-style: none;
+                    padding: 0;
+                    .woocommerce-mini-cart-item {
+                        &.mini_cart_item {
+                            display: flex;
+                            gap: 10px;
+                            align-items: start;
+                            .product-image {
+                                img {
+                                    max-width: 80px;
+                                    height: auto;
+                                    border-radius: 3px;
+                                }
+                            }
+                            .product-info {
+                                display: flex;
+                                gap: 2px;
+                                flex-direction: column;
+                                font-weight: 300;
+                                font-size: 0.9em;
+                                .product-name {
+                                    font-weight: inherit;
+                                    font-size: inherit;
+                                    margin-bottom: 0;
+                                }
+                                .product-buy-options {
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 0.3em;
+                                    font-weight: inherit;
+                                    font-size: inherit;
+                                    .quantity {
+                                        font-weight: 600;
+                                    }
+                                    .sale-price {
+                                    }
+                                    .regular-price {
+                                        .woocommerce-Price-amount {
+                                            &.amount {
+                                                color: $dourado;
+                                                font-weight: 700;
+                                                text-decoration: line-through;
+                                            }
+                                        }
+                                    }
+                                }
+                                .remove {
+                                    &.remove_from_cart_button {
+                                        color: $cinza;
+                                        font-size: 0.9em;
+                                        font-weight: 700;
+                                        line-height: 1.3em;
+                                        overflow: hidden;
+                                        text-overflow: ellipsis;
+                                        white-space: nowrap;
+                                        max-width: 100%;
+                                        text-decoration: none;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .woocommerce-mini-cart__buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            &.buttons {
+                .button {
+                    display: block;
+                    border-radius: 5px;
+                    background: $verde;
+                    color: $branco;
+                    text-align: center;
+                    font-size: .85em;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: .85em;
+                    letter-spacing: .2em;
+                    text-transform: uppercase;
+                    padding: 15px 30px;
+                    text-decoration: none;
+                    transition: opacity .25s;
+                    &:hover {
+                        opacity: .8;
+                    }
+                }
+            }
+        }
+        .woocommerce-mini-cart__total {
+            &.total {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                .woocommerce-Price-amount {
+                    &.amount {
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+    }
+    .offcanvas-footer {
+        background-color: $cinza-claro;
+        margin-top: auto;
+        padding: 16px;
+    }
+}
+
+.minicart-footer-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    font-size: .65em;
+    font-weight: 400;
+    columns: $azul;
+}
+
 // Form
 .form-control {
     border: none;
@@ -117,7 +250,7 @@
         }
         &.active {
             i {
-                color: $dourado;
+                color: $amarelo;
             }
         }
     }

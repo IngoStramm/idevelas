@@ -16,6 +16,20 @@ function iv_cmb_produto_opcoes()
         'id'         => 'iv_product_parcelamento',
         'type'       => 'text',
     ));
+
+    $cmb->add_field(array(
+        'name'       => esc_html__('Avaliação do produto', 'iv'),
+        'id'         => 'iv_product_rating',
+        'type'             => 'select',
+        'show_option_none' => false,
+        'options'          => array(
+            1 => 1,
+            2 => 2,
+            3 => 3,
+            4 => 4,
+            5 => 5
+        ),
+    ));
 }
 
 

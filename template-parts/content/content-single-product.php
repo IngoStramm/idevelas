@@ -17,7 +17,8 @@ $thumbnail_id = get_post_thumbnail_id($product_id);
 $slides_id = [];
 $slides_id[] = $thumbnail_id;
 $slides_id = array_merge($slides_id, $attachment_ids);
-$rating  = $product->get_average_rating();
+// $rating  = $product->get_average_rating();
+$rating  = get_post_meta($product_id, 'iv_product_rating', true);
 
 $terms = get_the_terms($product_id, 'product_cat');
 $categoria = null;
@@ -34,12 +35,13 @@ $categoria_pai = $categoria ? get_term($categoria->parent, 'product_cat') : null
     <div class="container">
         <div class="row">
 
-            <div class="col-md-12 gx-lg-5">
-                <?php
-                wc_get_template('single-product/rating.php');
-                echo iv_product_rating_stars($rating);
-                ?>
-            </div><!-- /.col-md-12 -->
+            <?php if ($rating) { ?>
+                <div class="col-md-12 gx-lg-5">
+                    <?php
+                    echo iv_product_rating_stars($rating);
+                    ?>
+                </div><!-- /.col-md-12 -->
+            <?php } ?>
 
             <div class="col-lg-6 gx-lg-5 mb-sm-4">
                 <div id="product-slider" class="carousel product-slider slide">
