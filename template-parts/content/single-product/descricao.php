@@ -21,7 +21,7 @@ $produto_descricao_image = get_post_meta($product_id, 'iv_produto_descricao_imag
 
                 <div class="col-md-6">
                     <div class="text-start mb-5"><?php echo wpautop(get_the_content()); ?></div>
-                    <div class="product-descricao-carrossel">
+                    <div class="produto-descricao-carrossel">
                         <?php foreach ($produto_descricao_carousel as $item) { ?>
                             <div><?php echo wpautop($item['texto']); ?></div>
                         <?php } ?>

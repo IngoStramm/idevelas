@@ -331,6 +331,23 @@ form.cart {
     color: $branco;
 }
 
+.produto-categoria {
+    text-align: center;
+    padding-block: 80px;
+    background-color: $cinza-claro;
+    img {
+        max-width: 100%;
+        margin-inline: auto;
+    }
+    p {
+        margin-bottom: 0;
+    }
+    h4 {
+        font-weight: 400;
+        font-size: 1.25em;
+    }
+}
+
 @media (min-width: 768px) {
     .price {
         &.single-product-price {
