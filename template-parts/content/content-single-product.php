@@ -9,6 +9,7 @@
 ?>
 
 <?php
+global $product;
 $product_id = get_the_ID();
 $product = wc_get_product($product_id);
 
@@ -34,7 +35,7 @@ $categoria_pai = $categoria ? get_term($categoria->parent, 'product_cat') : null
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <div class="container">
         <div class="row">
-
+            <div class="col-md-12"><?php do_action('woocommerce_before_single_product'); ?></div>
             <?php if ($rating) { ?>
                 <div class="col-md-12 gx-lg-5">
                     <?php
@@ -98,5 +99,7 @@ $categoria_pai = $categoria ? get_term($categoria->parent, 'product_cat') : null
     <?php get_template_part('template-parts/content/single-product/descricao'); ?>
     <?php get_template_part('template-parts/content/single-product/categoria'); ?>
     <?php get_template_part('template-parts/content/single-product/seja-ide'); ?>
+
+    <?php do_action('woocommerce_after_single_product'); ?>
 
 </article><!-- #post-<?php the_ID(); ?> -->

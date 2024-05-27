@@ -5,3 +5,27 @@
     font-style: normal;
     font-variation-settings: "wdth" 100;
 }
+
+@mixin add-to-cart-btn {
+    background-color: $verde;
+    color: $branco;
+    font-size: 1em;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    padding: 0.8em 1em;
+    text-transform: uppercase;
+    width: 100%;
+    letter-spacing: 0.2em;
+    margin-bottom: 20px;
+    text-decoration: none;
+}
+
+
+@mixin add-to-cart-btn-hover {
+    @include add-to-cart-btn;
+    text-decoration: none;
+    transition: all .2s;
+    opacity: .8;
+}

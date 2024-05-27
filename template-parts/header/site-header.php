@@ -53,9 +53,13 @@ $login_page_id = iv_get_page_id('login');
 
                 <li>
                     <a class="nav-link d-block text-center px-2 position-relative" data-bs-toggle="offcanvas" href="#offcanvasMinicart" role="button" aria-controls="offcanvasMinicart">
-                        <span class="header-cart position-absolute top-0 start-100 translate-middle badge rounded-pill">
-                            <?php echo WC()->cart->get_cart_contents_count(); ?>
-                        </span>
+                        <div class="header-cart position-absolute top-0 start-100 translate-middle badge rounded-pill">
+                            <div class="basket-item-count">
+                                <span class="cart-items-count">
+                                    <?php echo WC()->cart->get_cart_contents_count(); ?>
+                                </span>
+                            </div>
+                        </div>
                         <?php echo iv_get_icon('cart'); ?>
                     </a>
                 </li>

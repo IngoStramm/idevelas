@@ -155,7 +155,7 @@
 
 // jQuery
 jQuery(document).ready(function ($) {
-    function slickCarouselInit() {
+    function ivSlickCarouselInit() {
         const nextArrow = `<button type="button" class="slick-next"><svg width="12" height="19" viewBox="0 0 12 19" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M11.2 9.79501L2.2 0.795013L0.399997 2.59501L7.6 9.79501L0.399997 16.995L2.2 18.795L11.2 9.79501Z" fill="white" stroke="white" stroke- width="0.18" /></button>
         </svg >`;
@@ -199,5 +199,15 @@ jQuery(document).ready(function ($) {
 
         $('.produto-categoria-carrossel').slick({ ...defaultSettings, arrows: false, autoplay: true });
     }
-    slickCarouselInit();
+
+    function ivAddToCartEvent() {
+        $(document.body).on('added_to_cart', function () {
+            // offcanvasMinicart
+            const offcanvasMinicart = new bootstrap.Offcanvas('#offcanvasMinicart');
+            offcanvasMinicart.show();
+            console.log('adding_to_cart');
+        });
+    }
+    ivSlickCarouselInit();
+    ivAddToCartEvent();
 });
