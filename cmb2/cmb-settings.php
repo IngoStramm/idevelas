@@ -94,3 +94,104 @@ function iv_register_theme_options_metabox()
         )
     ));
 }
+
+add_action('cmb2_admin_init', 'iv_register_giftbox_options_metabox');
+
+function iv_register_giftbox_options_metabox() {
+    $cmb_options = new_cmb2_box(array(
+        'id'           => 'iv_giftbox_options_page',
+        'title'        => esc_html__('Giftbox', 'iv'),
+        'object_types' => array('options-page'),
+        'option_key'      => 'iv_giftbox_options', // The option key and admin menu page slug.
+        'icon_url'        => 'dashicons-admin-generic', // Menu icon. Only applicable if 'parent_slug' is left empty.
+        // 'menu_title'              => esc_html__( 'Options', 'iv' ), // Falls back to 'title' (above).
+        'parent_slug'             => 'iv_theme_options', // Make options page a submenu item of the themes menu.
+    ));
+
+    $cmb_options->add_field(array(
+        'name'    => esc_html__('Título', 'iv'),
+        'id'      => 'iv_giftbox_titulo',
+        'type'    => 'text',
+    ));
+
+    $cmb_options->add_field(array(
+        'name'    => esc_html__('Texto abaixo do título', 'iv'),
+        'id'      => 'iv_giftbox_text',
+        'type'    => 'wysiwyg',
+        'options' => array(
+            'textarea_rows' => 3,
+            'media_buttons' => false
+        ),
+    ));
+
+    $cmb_options->add_field(array(
+        'name'    => esc_html__('Texto em destaque', 'iv'),
+        'id'      => 'iv_giftbox_destaque',
+        'type'    => 'wysiwyg',
+        'options' => array(
+            'textarea_rows' => 3,
+            'media_buttons' => false
+        ),
+    ));
+
+    $cmb_options->add_field(array(
+        'name'    => esc_html__('Url do link', 'iv'),
+        'id'      => 'iv_giftbox_link_url',
+        'type'    => 'text_url',
+    ));
+
+    $cmb_options->add_field(array(
+        'name'    => esc_html__('Texto do Link', 'iv'),
+        'id'      => 'iv_giftbox_link_text',
+        'type'    => 'text',
+    ));
+
+    $cmb_options->add_field(array(
+        'name'    => esc_html__('Imagem', 'iv'),
+        'id'      => 'iv_giftbox_image',
+        'type'    => 'file',
+    ));
+
+}
+
+add_action('cmb2_admin_init', 'iv_register_ide_options_metabox');
+
+function iv_register_ide_options_metabox()
+{
+    $cmb_options = new_cmb2_box(array(
+        'id'           => 'iv_ide_options_page',
+        'title'        => esc_html__('Ide', 'iv'),
+        'object_types' => array('options-page'),
+        'option_key'      => 'iv_ide_options', // The option key and admin menu page slug.
+        'icon_url'        => 'dashicons-admin-generic', // Menu icon. Only applicable if 'parent_slug' is left empty.
+        // 'menu_title'              => esc_html__( 'Options', 'iv' ), // Falls back to 'title' (above).
+        'parent_slug'             => 'iv_theme_options', // Make options page a submenu item of the themes menu.
+    ));
+
+    $cmb_options->add_field(array(
+        'name'    => esc_html__('Imagem', 'iv'),
+        'id'      => 'iv_ide_image',
+        'type'    => 'file',
+    ));
+
+    $cmb_options->add_field(array(
+        'name'    => esc_html__('Texto principal', 'iv'),
+        'id'      => 'iv_ide_main_text',
+        'type'    => 'wysiwyg',
+        'options' => array(
+            'textarea_rows' => 3,
+            'media_buttons' => false
+        ),
+    ));
+
+    $cmb_options->add_field(array(
+        'name'    => esc_html__('Texto secundário', 'iv'),
+        'id'      => 'iv_ide_sec_text',
+        'type'    => 'wysiwyg',
+        'options' => array(
+            'textarea_rows' => 3,
+            'media_buttons' => false
+        ),
+    ));
+
+}

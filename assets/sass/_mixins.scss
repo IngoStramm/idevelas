@@ -7,6 +7,7 @@
 }
 
 @mixin add-to-cart-btn {
+    display: block;
     background-color: $verde;
     color: $branco;
     font-size: 1em;

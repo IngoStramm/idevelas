@@ -97,8 +97,10 @@ $categoria_pai = $categoria ? get_term($categoria->parent, 'product_cat') : null
     <?php get_template_part('template-parts/content/single-product/depoimentos'); ?>
     <?php get_template_part('template-parts/content/single-product/historia'); ?>
     <?php get_template_part('template-parts/content/single-product/descricao'); ?>
-    <?php get_template_part('template-parts/content/single-product/categoria'); ?>
+    <?php get_template_part('template-parts/content/single-product/categoria', '', array('cat' => $categoria)); ?>
     <?php get_template_part('template-parts/content/single-product/seja-ide'); ?>
+    <?php get_template_part('template-parts/content/single-product/giftbox'); ?>
+    <?php get_template_part('template-parts/content/single-product/ide'); ?>
 
     <?php do_action('woocommerce_after_single_product'); ?>
 

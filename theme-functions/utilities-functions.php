@@ -104,11 +104,11 @@ if (!function_exists('iv_paging_nav')) {
 /**
  * iv_version
  *
- * @return string
+* @return string
  */
 function iv_version()
 {
-    $version = '1.0.13';
+    $version = '1.0.15';
     return $version;
 }
 
@@ -119,14 +119,14 @@ function iv_version()
  * @param  boolean $default
  * @return mixed
  */
-function iv_get_option($key = '', $default = false)
+function iv_get_option($key = '', $options_key = 'iv_theme_options', $default = false)
 {
     if (function_exists('cmb2_get_option')) {
         // Use cmb2_get_option as it passes through some key filters.
-        return cmb2_get_option('iv_theme_options', $key, $default);
+        return cmb2_get_option($options_key, $key, $default);
     }
     // Fallback to get_option if CMB2 is not loaded yet.
-    $opts = get_option('iv_theme_options', $default);
+    $opts = get_option($options_key, $default);
     $val = $default;
     if ('all' == $key) {
         $val = $opts;
@@ -134,6 +134,16 @@ function iv_get_option($key = '', $default = false)
         $val = $opts[$key];
     }
     return $val;
+}
+
+function iv_get_option_giftbox($key = '')
+{
+    return iv_get_option($key, 'iv_giftbox_options');
+}
+
+function iv_get_option_ide($key = '')
+{
+    return iv_get_option($key, 'iv_ide_options');
 }
 
 

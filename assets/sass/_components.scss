@@ -483,6 +483,35 @@ form.cart {
     video {
         max-width: 100%;
     }
+    &.home-banner {
+        background-color: $azul-escuro;
+        padding-bottom: 0;
+        margin-bottom: 0;
+        .slick-slide {
+            border-radius: 0;
+        }
+        .image-wrapper {
+            position: relative;
+            padding: 0;
+            margin-bottom: 0;
+            &::before {
+                content: "";
+                position: absolute;
+                display: block;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                box-shadow: 100px 0 50px -20px $azul-escuro inset,
+                    -100px 0 50px -20px $azul-escuro inset;
+                z-index: 1;
+            }
+            img {
+                position: relative;
+                z-index: 0;
+            }
+        }
+    }
 }
 
 .produto-depoimentos {
@@ -591,6 +620,84 @@ form.cart {
     p {
         font-weight: 300;
         margin-bottom: 0;
+    }
+}
+
+.woocommerce-breadcrumb {
+    display: block;
+    margin-bottom: 40px;
+    font-size: 1.3em;
+    a {
+        color: $azul;
+    }
+}
+
+.giftbox {
+    background-color: $azul-escuro;
+    color: $dourado;
+    padding-block: 80px;
+    p {
+        margin-bottom: 0;
+    }
+    .giftbox-title {
+        @include font-advent;
+        font-size: 2.25em;
+        letter-spacing: 0.5em;
+        font-weight: 300;
+    }
+    .giftbox-text {
+        text-align: center;
+    }
+    .giftbox-destaque {
+        text-align: center;
+        color: $amarelo-claro;
+    }
+    .giftbox-link {
+        text-transform: uppercase;
+        font-size: 1em;
+        position: relative;
+        text-decoration: none;
+        color: $dourado;
+        letter-spacing: 0.2em;
+        padding-bottom: 1.5em;
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%);
+            width: 100px;
+            border-bottom: solid 1px $dourado;
+        }
+        &:hover {
+            transition: all 0.2s;
+            color: $branco;
+            &::after {
+                border-color: $branco;
+            }
+        }
+    }
+}
+
+.ide {
+    background-color: $cinza-claro;
+    padding-block: 80px;
+    margin-bottom: -3rem;
+    h4,
+    blockquote {
+        margin-bottom: 0;
+    }
+    .ide-main-text {
+        text-align: center;
+        font-size: 1.3em;
+        color: $azul-escuro;
+        line-height: 1.5em;
+        letter-spacing: 0.03em;
+        font-weight: 400;
+    }
+    blockquote {
+        text-align: center;
+        font-size: .9em;
     }
 }
 

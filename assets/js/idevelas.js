@@ -198,6 +198,8 @@ jQuery(document).ready(function ($) {
         $('.produto-descricao-carrossel').slick({ ...defaultSettings, arrows: false, autoplay: true });
 
         $('.produto-categoria-carrossel').slick({ ...defaultSettings, arrows: false, autoplay: true });
+        
+        $('.home-banner').slick({ ...defaultSettings, dots: false, autoplay: true });
     }
 
     function ivAddToCartEvent() {
