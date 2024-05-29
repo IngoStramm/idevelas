@@ -4,7 +4,7 @@
         array(
             'theme_location'    => 'primary',
             'walker'            => new Iv_Walker_Nav_Menu(),
-            'menu_class'        => 'navbar-nav me-auto mb-2 mb-lg-0',
+            'menu_class'        => 'navbar-nav me-auto',
             'fallback_cb'       => false,
             'container'         => false
         )

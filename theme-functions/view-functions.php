@@ -71,3 +71,24 @@ function iv_product_rating_stars($rating)
     $output .= '</ul>';
     return $output;
 }
+
+add_action('wp_head', 'iv_dynamic_tax_css_class');
+function iv_dynamic_tax_css_class()
+{
+    $output = '<style>';
+    $terms = get_terms(array(
+        'taxonomy'   => 'product_cat',
+        'hide_empty' => false,
+    ));
+    // iv_debug($terms);
+    foreach ($terms as $term) {
+        $term_color = get_term_meta($term->term_id, 'iv_term_color', true);
+        if($term_color && !$term->parent) {
+            $output .= "\n.$term->slug > a {
+                border-left: 5px solid $term_color;
+            }";
+        }
+    }
+    $output .= '</style>';
+    echo $output;
+}

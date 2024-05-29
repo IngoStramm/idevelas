@@ -13,7 +13,7 @@
     <div class="row">
         <div class="col">
             <header class="page-header alignwide">
-                <?php echo iv_breadcrumbs('anuncios'); ?>
+                <?php // echo iv_breadcrumbs('anuncios'); ?>
             </header><!-- .page-header -->
         </div>
     </div>

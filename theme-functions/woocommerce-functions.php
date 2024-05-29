@@ -31,7 +31,7 @@ add_filter('woocommerce_format_sale_price', 'iv_format_sale_price', 10, 3);
 
 function iv_format_sale_price($price, $regular_price, $sale_price)
 {
-    if (is_admin()) {
+    if (is_admin() || is_cart()) {
         return $price;
     }
     $formatted_regular_price = is_numeric($regular_price) ? wc_price($regular_price) : $regular_price;
