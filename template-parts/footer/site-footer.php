@@ -42,6 +42,10 @@
                         <?php if ($razao_social) { ?>
                             <li><?php printf(__('Razão Social: %s', 'iv'), $razao_social); ?></li>
                         <?php } ?>
+                        <?php $cnpj = iv_get_option('iv_cnpj'); ?>
+                        <?php if ($cnpj) { ?>
+                            <li><?php printf(__('CNPJ: %s', 'iv'), $cnpj); ?></li>
+                        <?php } ?>
                         <?php
                         $woocommerce_store_address = get_option('woocommerce_store_address');
                         $woocommerce_store_address_2 = get_option('woocommerce_store_address_2');
@@ -55,13 +59,13 @@
                         $woocommerce_store_state   = $split_country[1];
                         $woocommerce_store_postcode = get_option('woocommerce_store_postcode');
 
-                        $full_address = $woocommerce_store_address . '. ';
-                        $full_address .= $woocommerce_store_address_2 ? $woocommerce_store_address_2 . ', ' : '';
-                        $full_address .= $woocommerce_store_city ? $woocommerce_store_city . ' - ' : '';
-                        $full_address .= $woocommerce_store_state ? $woocommerce_store_state . '. ' : '';
-                        $full_address .= $woocommerce_store_postcode ? $woocommerce_store_postcode : '';
+                        $address_line_1 = $woocommerce_store_address && $woocommerce_store_address_2 ? $woocommerce_store_address . '. ' . $woocommerce_store_address_2 : null;
+                        $address_line_2 = $woocommerce_store_city && $woocommerce_store_state ? $woocommerce_store_city . ' - ' . $woocommerce_store_state : null;
+                        $address_line_3 = $woocommerce_store_postcode ? $woocommerce_store_postcode : null;
                         ?>
-                        <?php if ($full_address) { ?><li><?php echo $full_address; ?></li><?php } ?>
+                        <?php if ($address_line_1) { ?><li><?php echo $address_line_1; ?></li><?php } ?>
+                        <?php if ($address_line_2) { ?><li><?php echo $address_line_2; ?></li><?php } ?>
+                        <?php if ($address_line_3) { ?><li><?php echo $address_line_3; ?></li><?php } ?>
                     </ul>
                 </div>
             </div>
@@ -77,8 +81,8 @@
             </div>
 
             <div class="col-md-6 col-lg-3">
-                <h6><?php _e('Nossa Newsletter', 'iv'); ?></h6>
-                <p><?php _e('Assine nossa newsletter e receba as melhores ofertas DE GRAÇA!', 'iv'); ?></p>
+                <h6><?php _e('Novidades', 'iv'); ?></h6>
+                <p><?php _e('Digite seu melhor email e saiba tudo sobre nossos lançamentos e projetos!', 'iv'); ?></p>
 
                 <?php get_template_part('newsletter', 'form'); ?>
             </div>

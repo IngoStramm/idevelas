@@ -17,7 +17,7 @@
             const maskWhatsApp = IMask(inputWhatsApp, maskOptionsWhatsApp);
         }
 
-        const inputInscricaoEstadual = document.getElementById('iv_inscricao_estadual');
+        const inputInscricaoEstadual = document.getElementById('iv_cnpj');
         const maskOptionsInscricaoEstadual = {
             mask: '00.000.000/0000-00'
         };

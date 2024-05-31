@@ -242,7 +242,7 @@ jQuery(document).ready(function ($) {
 
         $('.produto-categoria-carrossel').slick({ ...defaultSettings, arrows: false, autoplay: true });
 
-        $('.home-banner').slick({ ...defaultSettings, dots: false, autoplay: true });
+        $('.home-banner').slick({ ...defaultSettings, arrows: false, autoplay: true });
     }
 
     function ivAddToCartEvent() {

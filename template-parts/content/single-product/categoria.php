@@ -19,13 +19,14 @@ if (isset($args['cat']) && $args['cat']) { ?>
                     <?php if ($term_description) { ?>
                         <?php echo wpautop($term_description); ?>
                     <?php } ?>
-                    <h4 class="mb-5 mb-lg-0"><?php _e('Quais destas histórias você já conhece?', 'iv'); ?></h4>
                 </div>
                 <?php if ($term_gallery) { ?>
                     <div class="col-lg-6 px-lg-5">
                         <div class="produto-categoria-carrossel">
                             <?php foreach ($term_gallery as $item) { ?>
-                                <img class="img-fluid" src="<?php echo $item; ?>" />
+                                <div class="produto-categoria-carrossel-item">
+                                    <img class="img-fluid" src="<?php echo $item; ?>" />
+                                </div>
                             <?php } ?>
                         </div>
                     </div>

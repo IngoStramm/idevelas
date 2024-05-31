@@ -85,11 +85,16 @@ $login_page_id = iv_get_page_id('login');
                             <li class="nav-item">
                                 <a href="<?php echo get_permalink(get_option('woocommerce_myaccount_page_id')); ?>" class="nav-link main-menu-link">
                                     <?php echo iv_get_icon('user-account'); ?>
-                                    <?php echo get_the_title(get_option('woocommerce_myaccount_page_id')); ?>
+                                    <?php echo is_user_logged_in() ? get_the_title(get_option('woocommerce_myaccount_page_id')) : __('Entrar', 'iv'); ?>
                                 </a>
                             </li>
                         </ul>
                         <ul class="redes-sociais d-flex align-center justify-content-start gap-4 mt-2">
+                            <?php
+                            $whatsapp = iv_get_option('iv_whatsapp');
+                            if ($whatsapp) { ?>
+                                <li><a href="https://wa.me/<?php echo preg_replace('~\D~', '', $whatsapp); ?>" target="_blank"><?php echo iv_get_icon('whatsapp'); ?></a></li>
+                            <?php } ?>
                             <?php
                             $facebook = iv_get_option_social_media('iv_facebook');
                             if ($facebook) { ?>

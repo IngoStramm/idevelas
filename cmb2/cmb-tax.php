@@ -33,6 +33,12 @@ function iv_register_taxonomy_metabox()
     ));
 
     $cmb_term->add_field(array(
+        'name' => esc_html__('Url do Banner', 'iv'),
+        'id'   => 'iv_term_banner_url',
+        'type' => 'text_url',
+    ));
+
+    $cmb_term->add_field(array(
         'name' => esc_html__('Logo da Categoria', 'iv'),
         'desc' => esc_html__('Exibido na página do produto da categoria', 'iv'),
         'id'   => 'iv_term_logo',

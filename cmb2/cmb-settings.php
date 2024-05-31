@@ -79,8 +79,8 @@ function iv_register_theme_options_metabox()
     ));
 
     $cmb_options->add_field(array(
-        'name'    => esc_html__('Inscrição Estadual da loja.', 'iv'),
-        'id'      => 'iv_inscricao_estadual',
+        'name'    => esc_html__('CNPJ da loja.', 'iv'),
+        'id'      => 'iv_cnpj',
         'type'    => 'text'
     ));
 

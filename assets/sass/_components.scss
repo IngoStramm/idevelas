@@ -39,6 +39,7 @@ h6 {
             }
         }
         .navbar-nav .dropdown-menu {
+            display: block;
             border: none;
             margin: 0;
             padding: 0;
@@ -397,7 +398,7 @@ h6 {
 .categoria-produto {
     border-radius: 5px;
     text-align: center;
-    color: $dourado;
+    color: $branco;
     padding: 0.75em 1em;
     line-height: 1em;
     margin-bottom: 20px;
@@ -640,6 +641,9 @@ form.cart {
                 z-index: 0;
             }
         }
+        .slick-dots {
+            bottom: -40px;
+        }
     }
 }
 
@@ -680,7 +684,7 @@ form.cart {
     text-align: center;
     h3 {
         @include font-advent;
-        font-size: 2em;
+        font-size: 1.4em;
         letter-spacing: 1.2em;
         text-transform: uppercase;
     }
@@ -916,12 +920,36 @@ form.cart {
     }
 }
 
+.produto-categoria-carrossel {
+    &.slick-slider {
+        .slick-slide {
+            img {
+                max-width: 100%;
+                border-radius: 6px;
+                margin-inline: auto;
+            }
+        }
+    }
+}
+
 @media (min-width: 768px) {
     #navbarMenuPrincipal {
         .offcanvas-body {
             padding: 0;
             a {
                 font-size: 1em;
+            }
+            .navbar-nav {
+                .dropdown-menu {
+                    display: none;
+                    &.show {
+                        display: block;
+                    }
+                    .sub-menu,
+                    .sub-sub-menu {
+                        display: block;
+                    }
+                }
             }
         }
     }
@@ -939,6 +967,7 @@ form.cart {
         text-align: left;
         h3 {
             text-align: center;
+            font-size: 2em;
         }
     }
     .woocommerce-MyAccount-navigation {

@@ -78,11 +78,12 @@ $categoria_pai = $categoria ? get_term($categoria->parent, 'product_cat') : null
 
                 <small class="d-flex justify-content-center align-items-center site-verificado mb-3"><?php _e('SITE OFICIAL VERIFICADO 🥇', 'iv'); ?></small>
 
-                <div class="row gap-5 vantagens-produto">
+                <div class="row mb-5 vantagens-produto">
                     <div class="col-6 d-flex justify-content-center gap-2 align-items-center text-center">
                         <?php echo iv_get_icon('truck'); ?>
                         <small><?php _e('Entregue no conforto<br/>de sua casa', 'iv'); ?></small>
                     </div>
+
                     <div class="col-6 d-flex justify-content-center gap-2 align-items-center text-center">
                         <?php echo iv_get_icon('heart'); ?>
                         <small><?php _e('Você vai amar cada<br/>detalhe da IDE', 'iv'); ?></small>
