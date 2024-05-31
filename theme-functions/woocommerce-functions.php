@@ -100,7 +100,9 @@ function iv_get_product_gallery()
     $output .= '<div id="product-slider-' . $product_id . '" class="carousel product-slider slide">';
     foreach ($slides_id as $k => $slide_id) {
         $output .= '<div>
-                <img src="' . wp_get_attachment_url($slide_id) . '" class="rounded d-block w-100">
+                <a href="' . get_the_permalink($product_id) . '">
+                    <img src="' . wp_get_attachment_url($slide_id) . '" class="rounded d-block w-100">
+                </a>
             </div>';
     }
     $output .= '</div>';
@@ -168,4 +170,56 @@ function iv_add_to_cart_btn()
     }
     $link = get_permalink($product_id);
     printf('<a href="%s" class="iv-add-to-cart-btn">%s</a>', $link, __('Conhecer produto 👉', 'iv'));
+}
+
+add_filter('woocommerce_add_to_cart_redirect', 'iv_redirect_add_to_cart');
+
+function iv_redirect_add_to_cart()
+{
+    global $woocommerce;
+    $cw_redirect_url_checkout = wc_get_checkout_url();
+    return $cw_redirect_url_checkout;
+}
+
+remove_action('woocommerce_widget_shopping_cart_buttons', 'woocommerce_widget_shopping_cart_button_view_cart');
+
+add_filter('woocommerce_quantity_input_classes', 'iv_add_css_class_qty_product', 10, 2);
+
+function iv_add_css_class_qty_product($classes, $product)
+{
+    if (is_array($classes)) {
+        $classes[] = 'form-control';
+        $classes[] = 'product-' . $product->get_id();
+    } else if (is_string($classes)) {
+        $classes .= ' form-control';
+        $classes .= ' product' . $product->get_id();
+    }
+    return $classes;
+}
+
+add_action('woocommerce_before_quantity_input_field', 'iv_minus_qty_product', 999);
+
+function iv_minus_qty_product()
+{
+    echo '
+    <div class="input-group qty-wrapper">
+    <span class="input-group-text"><a href="#" class="minus-qty">&ndash;</a></span>
+    ';
+}
+
+add_action('woocommerce_after_quantity_input_field', 'iv_plus_qty_product');
+
+function iv_plus_qty_product()
+{
+    echo '
+    <span class="input-group-text"><a href="#" class="plus-qty">+</a></span>
+    </div>
+    ';
+}
+
+add_filter('woocommerce_return_to_shop_redirect', 'iv_woocommerce_return_to_shop_redirect');
+add_filter('woocommerce_continue_shopping_redirect', 'iv_woocommerce_return_to_shop_redirect');
+function iv_woocommerce_return_to_shop_redirect()
+{
+    return home_url();
 }

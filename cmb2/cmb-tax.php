@@ -19,9 +19,16 @@ function iv_register_taxonomy_metabox()
     ));
 
     $cmb_term->add_field(array(
-        'name' => esc_html__('Banner da Categoria', 'iv'),
+        'name' => esc_html__('Banner da Categoria (versão desktop)', 'iv'),
         'desc' => esc_html__('Exibido na página da categoria', 'iv'),
-        'id'   => 'iv_term_banner',
+        'id'   => 'iv_term_banner_desktop',
+        'type' => 'file',
+    ));
+
+    $cmb_term->add_field(array(
+        'name' => esc_html__('Banner da Categoria (versão mobile)', 'iv'),
+        'desc' => esc_html__('Exibido na página da categoria', 'iv'),
+        'id'   => 'iv_term_banner_mobile',
         'type' => 'file',
     ));
 

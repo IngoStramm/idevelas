@@ -195,3 +195,86 @@ function iv_register_ide_options_metabox()
     ));
 
 }
+
+add_action('cmb2_admin_init', 'iv_register_scripts_options_metabox');
+
+function iv_register_scripts_options_metabox()
+{
+    $cmb_options = new_cmb2_box(array(
+        'id'           => 'iv_scripts_options_page',
+        'title'        => esc_html__('Scripts', 'iv'),
+        'object_types' => array('options-page'),
+        'option_key'      => 'iv_scripts_options', // The option key and admin menu page slug.
+        'icon_url'        => 'dashicons-admin-generic', // Menu icon. Only applicable if 'parent_slug' is left empty.
+        // 'menu_title'              => esc_html__( 'Options', 'iv' ), // Falls back to 'title' (above).
+        'parent_slug'             => 'iv_theme_options', // Make options page a submenu item of the themes menu.
+    ));
+
+    $cmb_options->add_field(array(
+        'name'    => esc_html__('Scripts do Head', 'iv'),
+        'description'   => esc_html__('Scripts que serão inseridos no <head> do site (incluir a tag <script>)'),
+        'id'      => 'iv_scripts_head',
+        'type'    => 'textarea',
+        'sanitization_cb' => 'iv_script_sanitization',
+    ));
+
+    $cmb_options->add_field(array(
+        'name'    => esc_html__('Scripts do Body', 'iv'),
+        'description'   => esc_html__('Scripts que serão inseridos no <body> do site (incluir a tag <script>)'),
+        'id'      => 'iv_scripts_body',
+        'type'    => 'textarea',
+        'sanitization_cb' => 'iv_script_sanitization',
+    ));
+
+}
+
+add_action('cmb2_admin_init', 'iv_register_social_media_options_metabox');
+
+function iv_register_social_media_options_metabox()
+{
+    $cmb_options = new_cmb2_box(array(
+        'id'           => 'iv_social_media_options_page',
+        'title'        => esc_html__('Redes Sociais', 'iv'),
+        'object_types' => array('options-page'),
+        'option_key'      => 'iv_social_media_options', // The option key and admin menu page slug.
+        'icon_url'        => 'dashicons-admin-generic', // Menu icon. Only applicable if 'parent_slug' is left empty.
+        // 'menu_title'              => esc_html__( 'Options', 'iv' ), // Falls back to 'title' (above).
+        'parent_slug'             => 'iv_theme_options', // Make options page a submenu item of the themes menu.
+    ));
+
+    $cmb_options->add_field(array(
+        'name'    => esc_html__('Url da conta no Facebook', 'iv'),
+        'id'      => 'iv_facebook',
+        'type'    => 'text_url',
+    ));
+
+    $cmb_options->add_field(array(
+        'name'    => esc_html__('Url da conta no Instagram', 'iv'),
+        'id'      => 'iv_instagram',
+        'type'    => 'text_url',
+    ));
+
+    $cmb_options->add_field(array(
+        'name'    => esc_html__('Url da conta no Youtube', 'iv'),
+        'id'      => 'iv_youtube',
+        'type'    => 'text_url',
+    ));
+
+    $cmb_options->add_field(array(
+        'name'    => esc_html__('Url da conta no Tik Tok', 'iv'),
+        'id'      => 'iv_tiktok',
+        'type'    => 'text_url',
+    ));
+
+    $cmb_options->add_field(array(
+        'name'    => esc_html__('Url da conta no Twitter', 'iv'),
+        'id'      => 'iv_twitter',
+        'type'    => 'text_url',
+    ));
+
+}
+
+
+function iv_script_sanitization($value, $field_args, $field) {
+    return $value;
+}

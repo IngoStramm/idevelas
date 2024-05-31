@@ -108,7 +108,7 @@ if (!function_exists('iv_paging_nav')) {
  */
 function iv_version()
 {
-    $version = '1.0.16';
+    $version = '1.0.17';
     return $version;
 }
 
@@ -144,6 +144,16 @@ function iv_get_option_giftbox($key = '')
 function iv_get_option_ide($key = '')
 {
     return iv_get_option($key, 'iv_ide_options');
+}
+
+function iv_get_option_scripts($key = '')
+{
+    return iv_get_option($key, 'iv_scripts_options');
+}
+
+function iv_get_option_social_media($key = '')
+{
+    return iv_get_option($key, 'iv_social_media_options');
 }
 
 

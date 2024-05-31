@@ -21,6 +21,7 @@
 </head>
 
 <body>
+    <?php do_action('iv_scripts'); ?>
     <?php do_action('iv_modal'); ?>
     <main>
         <?php get_template_part('minicart'); ?>

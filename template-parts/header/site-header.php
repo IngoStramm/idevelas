@@ -1,5 +1,5 @@
 <?php
-$wrapper_classes  = 'site-header mb-5 sticky-top';
+$wrapper_classes  = 'site-header sticky-top';
 $wrapper_classes .= has_custom_logo() ? ' has-logo' : '';
 $wrapper_classes .= (true === get_theme_mod('display_title_and_tagline', true)) ? ' has-title-and-tagline' : '';
 $wrapper_classes .= has_nav_menu('primary') ? ' has-menu' : '';
@@ -38,7 +38,7 @@ $login_page_id = iv_get_page_id('login');
                 <?php if (get_option('woocommerce_myaccount_page_id')) { ?>
                     <li class="d-none d-md-block">
                         <a href="<?php echo get_permalink(get_option('woocommerce_myaccount_page_id')); ?>" class="nav-link d-block text-center px-2">
-                            <i class="bi bi-person fs-3"></i>
+                            <?php echo iv_get_icon('user-account'); ?>
                         </a>
                     </li>
                 <?php } ?>
@@ -70,19 +70,51 @@ $login_page_id = iv_get_page_id('login');
     <nav class="navbar navbar-expand-md" id="second-header-navbar">
         <div class="container">
             <div class="offcanvas offcanvas-start" tabindex="-1" id="navbarMenuPrincipal" aria-labelledby="navbarMenuPrincipalLabel">
-                <div class="offcanvas-header">
-                    <?php get_template_part('template-parts/header/site-header', 'branding'); ?>
+                <div class="offcanvas-header align-items-center justify-content-center">
+                    <div class="">
+                        <?php get_template_part('template-parts/header/site-header', 'branding'); ?>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
                     <?php get_template_part('template-parts/header/site-header', 'nav'); ?>
+                </div>
+                <div class="offcanvas-footer d-md-none">
                     <?php if (get_option('woocommerce_myaccount_page_id')) { ?>
-                        <ul class="navbar-nav me-auto d-block d-md-none">
+                        <ul class="navbar-nav me-auto d-block ms-4">
                             <li class="nav-item">
                                 <a href="<?php echo get_permalink(get_option('woocommerce_myaccount_page_id')); ?>" class="nav-link main-menu-link">
-                                    <i class="bi bi-person fs-3"></i>
+                                    <?php echo iv_get_icon('user-account'); ?>
                                     <?php echo get_the_title(get_option('woocommerce_myaccount_page_id')); ?>
                                 </a>
                             </li>
+                        </ul>
+                        <ul class="redes-sociais d-flex align-center justify-content-start gap-4 mt-2">
+                            <?php
+                            $facebook = iv_get_option_social_media('iv_facebook');
+                            if ($facebook) { ?>
+                                <li><a href="<?php echo $facebook; ?>" target="_blank"><?php echo iv_get_icon('facebook'); ?></a></li>
+                            <?php } ?>
+                            <?php
+                            $instagram = iv_get_option_social_media('iv_instagram');
+                            if ($instagram) { ?>
+                                <li><a href="<?php echo $instagram; ?>" target="_blank"><?php echo iv_get_icon('instagram'); ?></a></li>
+                            <?php } ?>
+                            <?php
+                            $youtube = iv_get_option_social_media('iv_youtube');
+                            if ($youtube) { ?>
+                                <li><a href="<?php echo $youtube; ?>" target="_blank"><?php echo iv_get_icon('youtube'); ?></a></li>
+                            <?php } ?>
+                            <?php
+                            $tiktok = iv_get_option_social_media('iv_tiktok');
+                            if ($tiktok) { ?>
+                                <li><a href="<?php echo $tiktok; ?>" target="_blank"><?php echo iv_get_icon('tiktok'); ?></a></li>
+                            <?php } ?>
+                            <?php
+                            $twitter = iv_get_option_social_media('iv_twitter');
+                            if ($twitter) { ?>
+                                <li><a href="<?php echo $twitter; ?>" target="_blank"><?php echo iv_get_icon('twitter'); ?></a></li>
+                            <?php } ?>
                         </ul>
                     <?php } ?>
                 </div>

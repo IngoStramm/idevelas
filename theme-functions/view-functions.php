@@ -92,3 +92,25 @@ function iv_dynamic_tax_css_class()
     $output .= '</style>';
     echo $output;
 }
+
+add_action('wp_head', 'iv_add_head_scripts');
+
+function iv_add_head_scripts() {
+    $scripts_head = iv_get_option_scripts('iv_scripts_head');
+    $output = '';
+    if($scripts_head) {
+        $output .= $scripts_head;
+    }
+    echo $output;
+}
+
+add_action('iv_scripts', 'iv_add_body_scripts');
+
+function iv_add_body_scripts() {
+    $scripts_body = iv_get_option_scripts('iv_scripts_body');
+    $output = '';
+    if($scripts_body) {
+        $output .= $scripts_body;
+    }
+    echo $output;
+}

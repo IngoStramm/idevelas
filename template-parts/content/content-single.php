@@ -23,11 +23,17 @@
         <?php
         $term_id = get_queried_object()->term_id;
         if ($term_id) {
-            $term_banner = get_term_meta($term_id, 'iv_term_banner', true);
+            $term_banner_mobile = get_term_meta($term_id, 'iv_term_banner_mobile', true);
+            if ($term_banner_mobile) { ?>
+                <img src="<?php echo $term_banner_mobile ?>" class="img-fluid w-100 mb-4 d-block d-md-none">
+            <?php
+            }
+            $term_banner_desktop = get_term_meta($term_id, 'iv_term_banner_desktop', true);
+            if ($term_banner_desktop) { ?>
+                <img src="<?php echo $term_banner_desktop ?>" class="img-fluid w-100 mb-4 d-none d-md-block">
+        <?php
+            }
             $term_description = term_description($term_id);
-            if ($term_banner) { ?>
-                <img src="<?php echo $term_banner ?>" class="img-fluid w-100 mb-4">
-        <?php }
         } ?>
     <?php } ?>
     <div class="container">

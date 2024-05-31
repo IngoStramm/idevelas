@@ -145,11 +145,54 @@
         }
     }
 
+    function ivQtyProductInput() {
+        const qtyWrapper = document.querySelectorAll('.qty-wrapper');
+        qtyWrapper.forEach(e => {
+            const btnMinus = e.querySelector('.minus-qty');
+            const btnPlus = e.querySelector('.plus-qty');
+            const qtyInput = e.querySelector('.qty');
+
+            if (typeof btnMinus !== undefined && btnMinus) {
+                ivChangeQtyValue(btnMinus, qtyInput);
+            }
+
+            if (typeof btnPlus !== undefined && btnPlus) {
+                ivChangeQtyValue(btnPlus, qtyInput);
+            }
+        });
+    }
+
+    function ivChangeQtyValue(btn, qtyInput) {
+        btn.addEventListener('click', e => {
+            e.preventDefault();
+            let newValue = qtyInput.value;
+            if (btn.classList.contains('minus-qty')) {
+                newValue--;
+            } else {
+                newValue++;
+            }
+            if (newValue <= 0) {
+                newValue = 0;
+            }
+            const classesQtyInputs = qtyInput.classList.value;
+            const classesArray = classesQtyInputs.split(' ');
+            let cssSelector = '';
+            classesArray.forEach(item => {
+                cssSelector += `.${item}`;
+            });
+            const allInputs = document.querySelectorAll(cssSelector);
+            allInputs.forEach(item => {
+                item.value = newValue;
+            });
+        });
+    }
+
     document.addEventListener('DOMContentLoaded', function () {
         ivFormsValidation();
         iv_newsletter_form();
         ivGoBackBtn();
         ivProductCarousels();
+        ivQtyProductInput();
     });
 })();
 
@@ -198,7 +241,7 @@ jQuery(document).ready(function ($) {
         $('.produto-descricao-carrossel').slick({ ...defaultSettings, arrows: false, autoplay: true });
 
         $('.produto-categoria-carrossel').slick({ ...defaultSettings, arrows: false, autoplay: true });
-        
+
         $('.home-banner').slick({ ...defaultSettings, dots: false, autoplay: true });
     }
 

@@ -78,7 +78,7 @@ $categoria_pai = $categoria ? get_term($categoria->parent, 'product_cat') : null
 
                 <small class="d-flex justify-content-center align-items-center site-verificado mb-3"><?php _e('SITE OFICIAL VERIFICADO 🥇', 'iv'); ?></small>
 
-                <div class="row g-5 vantagens-produto">
+                <div class="row gap-5 vantagens-produto">
                     <div class="col-6 d-flex justify-content-center gap-2 align-items-center text-center">
                         <?php echo iv_get_icon('truck'); ?>
                         <small><?php _e('Entregue no conforto<br/>de sua casa', 'iv'); ?></small>
@@ -94,7 +94,7 @@ $categoria_pai = $categoria ? get_term($categoria->parent, 'product_cat') : null
         </div><!-- /.row -->
     </div><!-- /.container -->
 
-    <?php get_template_part('template-parts/content/single-product/depoimentos'); ?>
+    <?php // get_template_part('template-parts/content/single-product/depoimentos'); ?>
     <?php get_template_part('template-parts/content/single-product/historia'); ?>
     <?php get_template_part('template-parts/content/single-product/descricao'); ?>
     <?php get_template_part('template-parts/content/single-product/categoria', '', array('cat' => $categoria)); ?>

@@ -33,7 +33,7 @@ function iv_cmb_produto_opcoes()
 }
 
 
-add_action('cmb2_admin_init', 'iv_cmb_produto_depoimentos');
+// add_action('cmb2_admin_init', 'iv_cmb_produto_depoimentos');
 
 function iv_cmb_produto_depoimentos()
 {

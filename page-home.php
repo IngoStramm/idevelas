@@ -19,7 +19,7 @@ $iv_home_banner_mobile = get_post_meta($post_id, 'iv_home_banner_mobile', true);
                 <?php if ($url) { ?>
                     <a class="d-flex justify-content-center align-items-center" href="<?php echo $url; ?>">
                     <?php } ?>
-                    <figure class="image-wrapper d-inline-block mx-auto">
+                    <figure class="image-wrapper d-flex justify-content-center align-items-center">
                         <img class="img-fluid mx-auto" src="<?php echo $item['image']; ?>">
                     </figure>
                     <?php if ($url) { ?>
@@ -35,9 +35,9 @@ $iv_home_banner_mobile = get_post_meta($post_id, 'iv_home_banner_mobile', true);
         <?php foreach ($iv_home_banner_mobile as $item) { ?>
             <?php $url = isset($item['url']) && $item['url'] ? $item['url'] : null; ?>
             <?php if ($url) { ?>
-                <a href="<?php echo $url; ?>">
+                <a class="d-flex justify-content-center align-items-center" href="<?php echo $url; ?>">
                 <?php } ?>
-                <figure class="image-wrapper d-inline-block mx-auto">
+                <figure class="image-wrapper d-flex justify-content-center align-items-center">
                     <img class="img-fluid mx-auto" src="<?php echo $item['image']; ?>">
                 </figure>
                 <?php if ($url) { ?>
