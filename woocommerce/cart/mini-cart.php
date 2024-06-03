@@ -23,7 +23,10 @@ defined('ABSPATH') || exit;
 do_action('woocommerce_before_mini_cart'); ?>
 
 <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasMinicartLabel"><?php echo iv_logo(); ?></h5>
+    <h5 class="offcanvas-title d-flex align-items-center" id="offcanvasMinicartLabel">
+        <?php echo iv_logo(); ?>
+        <span class="mini-cart-frete-message mx-auto"><?php printf('<strong>%s</strong>%s', __('Frete grátis', 'iv'), __(' acima de R$ 400,00', 'iv')) ?></span>
+    </h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 </div>
 

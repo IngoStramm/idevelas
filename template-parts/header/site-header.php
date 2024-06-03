@@ -19,11 +19,11 @@ $login_page_id = iv_get_page_id('login');
 
             <?php get_template_part('template-parts/header/site-header', 'branding'); ?>
 
-            <div class="d-none d-sm-block">
+            <div class="d-none d-md-block">
                 <?php get_search_form(); ?>
             </div>
 
-            <?php get_template_part('template-parts/header/site-header-order', 'track'); ?>
+            <?php // get_template_part('template-parts/header/site-header-order', 'track'); ?>
 
             <?php get_template_part('template-parts/header/site-header', 'whatsapp'); ?>
 
@@ -39,6 +39,7 @@ $login_page_id = iv_get_page_id('login');
                     <li class="d-none d-md-block">
                         <a href="<?php echo get_permalink(get_option('woocommerce_myaccount_page_id')); ?>" class="nav-link d-block text-center px-2">
                             <?php echo iv_get_icon('user-account'); ?>
+                            <?php echo is_user_logged_in() ? _e('Minha Conta', 'iv') : __('Entrar/Cadastrar'); ?>
                         </a>
                     </li>
                 <?php } ?>

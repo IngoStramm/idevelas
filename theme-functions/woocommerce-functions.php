@@ -172,7 +172,7 @@ function iv_add_to_cart_btn()
     printf('<a href="%s" class="iv-add-to-cart-btn">%s</a>', $link, __('Conhecer produto 👉', 'iv'));
 }
 
-add_filter('woocommerce_add_to_cart_redirect', 'iv_redirect_add_to_cart');
+// add_filter('woocommerce_add_to_cart_redirect', 'iv_redirect_add_to_cart');
 
 function iv_redirect_add_to_cart()
 {

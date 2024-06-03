@@ -171,9 +171,16 @@ h6 {
     }
     .offcanvas-header {
         background-color: $cinza-claro;
+        .mini-cart-frete-message {
+            font-size: .6em;
+            strong {
+                text-transform: uppercase;
+            }
+        }
     }
     .offcanvas-body {
         min-height: 300px;
+        font-size: 1.3em;
     }
     .woocommerce-mini-cart {
         &.cart_list {
@@ -203,7 +210,7 @@ h6 {
                             font-size: 0.9em;
                             .product-name {
                                 font-weight: inherit;
-                                font-size: inherit;
+                                font-size: 1.3em;
                                 margin-bottom: 0;
                             }
                             .product-buy-options {
@@ -925,11 +932,30 @@ form.cart {
         .slick-slide {
             img {
                 max-width: 100%;
-                border-radius: 6px;
+                border-radius: 10px;
                 margin-inline: auto;
             }
         }
     }
+}
+
+.entry-content {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @include font-advent;
+    }
+}
+
+.order-actions-btns {
+    display: flex;
+    gap: 5px;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 @media (min-width: 768px) {
@@ -987,6 +1013,9 @@ form.cart {
                 }
             }
         }
+    }
+    .order-actions-btns {
+        justify-content: flex-start;
     }
 }
 @media (min-width: 992px) {

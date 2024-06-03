@@ -172,7 +172,7 @@
                 newValue++;
             }
             if (newValue <= 0) {
-                newValue = 0;
+                newValue = 1;
             }
             const classesQtyInputs = qtyInput.classList.value;
             const classesArray = classesQtyInputs.split(' ');
@@ -183,6 +183,16 @@
             const allInputs = document.querySelectorAll(cssSelector);
             allInputs.forEach(item => {
                 item.value = newValue;
+            });
+            const ajaxBtns = document.querySelectorAll('.ajax_add_to_cart');
+            ajaxBtns.forEach(item => {
+                const productId = item.dataset.product_id;
+                allInputs.forEach(input => {
+                    if (input.classList.contains('product-' + productId)) {
+                        item.dataset.quantity = newValue;
+                        console.log('change qty');
+                    }
+                });
             });
         });
     }
@@ -250,7 +260,6 @@ jQuery(document).ready(function ($) {
             // offcanvasMinicart
             const offcanvasMinicart = new bootstrap.Offcanvas('#offcanvasMinicart');
             offcanvasMinicart.show();
-            console.log('adding_to_cart');
         });
     }
     ivSlickCarouselInit();

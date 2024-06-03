@@ -22,7 +22,7 @@ function iv_register_homepage_metabox()
         'id'            => 'iv_homepage_metabox',
         'title'         => esc_html__('Opções', 'iv'),
         'object_types'  => array('page'), // Post type
-        // 'show_on_cb' => 'iv_show_if_front_page', // function should return a bool value
+        'show_on_cb' => 'iv_show_if_front_page', // function should return a bool value
         // 'context'    => 'normal',
         // 'priority'   => 'high',
         // 'show_names' => true, // Show field names on the left
