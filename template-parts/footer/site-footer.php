@@ -59,13 +59,15 @@
                         $woocommerce_store_state   = $split_country[1];
                         $woocommerce_store_postcode = get_option('woocommerce_store_postcode');
 
-                        $address_line_1 = $woocommerce_store_address && $woocommerce_store_address_2 ? $woocommerce_store_address . '. ' . $woocommerce_store_address_2 : null;
-                        $address_line_2 = $woocommerce_store_city && $woocommerce_store_state ? $woocommerce_store_city . ' - ' . $woocommerce_store_state : null;
-                        $address_line_3 = $woocommerce_store_postcode ? $woocommerce_store_postcode : null;
+                        $address_line_1 = $woocommerce_store_address ? $woocommerce_store_address : null;
+                        $address_line_2 = $woocommerce_store_address_2 ? $woocommerce_store_address_2 : null;
+                        $address_line_3 = $woocommerce_store_city && $woocommerce_store_state ? $woocommerce_store_city . ' - ' . $woocommerce_store_state : null;
+                        $address_line_4 = $woocommerce_store_postcode ? $woocommerce_store_postcode : null;
                         ?>
                         <?php if ($address_line_1) { ?><li><?php echo $address_line_1; ?></li><?php } ?>
                         <?php if ($address_line_2) { ?><li><?php echo $address_line_2; ?></li><?php } ?>
                         <?php if ($address_line_3) { ?><li><?php echo $address_line_3; ?></li><?php } ?>
+                        <?php if ($address_line_4) { ?><li><?php echo $address_line_4; ?></li><?php } ?>
                     </ul>
                 </div>
             </div>

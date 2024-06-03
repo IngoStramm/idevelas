@@ -12,7 +12,6 @@
             <?php */ ?>
             <?php $col_class = 'col-lg-6'; ?>
             <div class="<?php echo $col_class; ?>">
-                <h6 class="text-center"><?php _e('Formas de pagamento', 'iv'); ?></h6>
                 <div class="d-flex justify-content-center align-items-center">
                     <?php echo iv_get_icon('bandeiras'); ?>
                 </div>
