@@ -25,7 +25,9 @@ if (isset($args['cat']) && $args['cat']) { ?>
                         <div class="produto-categoria-carrossel">
                             <?php foreach ($term_gallery as $item) { ?>
                                 <div class="produto-categoria-carrossel-item">
-                                    <img class="img-fluid" src="<?php echo $item; ?>" />
+                                    <?php if ($item['url']) { ?><a href="<?php echo $item['url']; ?>"><?php } ?>
+                                        <img class="img-fluid" src="<?php echo $item['image']; ?>" />
+                                    <?php if ($item['url']) { ?></a><?php } ?>
                                 </div>
                             <?php } ?>
                         </div>

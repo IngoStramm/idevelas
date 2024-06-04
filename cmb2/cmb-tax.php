@@ -45,11 +45,35 @@ function iv_register_taxonomy_metabox()
         'type' => 'file',
     ));
 
-    $cmb_term->add_field(array(
-        'name' => esc_html__('Galeria de imagens da Categoria', 'iv'),
-        'desc' => esc_html__('Exibido na página do produto da categoria', 'iv'),
-        'id'   => 'iv_term_gallery',
-        'type' => 'file_list',
+    // $cmb_term->add_field(array(
+    //     'name' => esc_html__('Galeria de imagens da Categoria', 'iv'),
+    //     'desc' => esc_html__('Exibido na página do produto da categoria', 'iv'),
+    //     'id'   => 'iv_term_gallery',
+    //     'type' => 'file_list',
+    // ));
+
+    $group_field_id = $cmb_term->add_field(array(
+        'id'          => 'iv_term_gallery',
+        'type'        => 'group',
+        'description' => esc_html__('Galeria de imagens da Categoria', 'iv'),
+        'options'     => array(
+            'group_title'    => esc_html__('Item #{#}', 'iv'), // {#} gets replaced by row number
+            'add_button'     => esc_html__('Adicionar novo item', 'iv'),
+            'remove_button'  => esc_html__('Remover item', 'iv'),
+            'sortable'       => true,
+        ),
+    ));
+
+    $cmb_term->add_group_field($group_field_id, array(
+        'name'       => esc_html__('Imagem', 'iv'),
+        'id'         => 'image',
+        'type'       => 'file',
+    ));
+
+    $cmb_term->add_group_field($group_field_id, array(
+        'name'       => esc_html__('Url (opcional)', 'iv'),
+        'id'         => 'url',
+        'type'       => 'text_url',
     ));
 
     $cmb_term->add_field(array(
