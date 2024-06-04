@@ -882,6 +882,7 @@ form.cart {
 .entry-title {
     @include font-advent;
     letter-spacing: 0.2em;
+    margin-top: 40px;
     margin-bottom: 20px;
     color: $azul;
 }
@@ -925,6 +926,10 @@ form.cart {
         background-color: $dourado;
         color: $branco;
     }
+}
+
+.produto-categoria {
+    font-size: 1.25em;
 }
 
 .produto-categoria-carrossel {

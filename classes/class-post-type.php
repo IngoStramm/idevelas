@@ -26,14 +26,14 @@ class IV_Post_Type
      * @var array
      */
     protected $arguments = array();
-    
+
     /**
      * name
      *
      * @var string
      */
     protected $name = '';
-    
+
     /**
      * slug
      *
@@ -84,20 +84,20 @@ class IV_Post_Type
     protected function labels()
     {
         $default = array(
-            'name'               => sprintf(__('%ss', 'ea-dentistas'), $this->name),
-            'singular_name'      => sprintf(__('%s', 'ea-dentistas'), $this->name),
-            'view_item'          => sprintf(__('View %s', 'ea-dentistas'), $this->name),
-            'edit_item'          => sprintf(__('Edit %s', 'ea-dentistas'), $this->name),
-            'search_items'       => sprintf(__('Search %s', 'ea-dentistas'), $this->name),
-            'update_item'        => sprintf(__('Update %s', 'ea-dentistas'), $this->name),
-            'parent_item_colon'  => sprintf(__('Parent %s:', 'ea-dentistas'), $this->name),
-            'menu_name'          => sprintf(__('%ss', 'ea-dentistas'), $this->name),
-            'add_new'            => __('Add New', 'ea-dentistas'),
-            'add_new_item'       => sprintf(__('Add New %s', 'ea-dentistas'), $this->name),
-            'new_item'           => sprintf(__('New %s', 'ea-dentistas'), $this->name),
-            'all_items'          => sprintf(__('All %ss', 'ea-dentistas'), $this->name),
-            'not_found'          => sprintf(__('No %s found', 'ea-dentistas'), $this->name),
-            'not_found_in_trash' => sprintf(__('No %s found in Trash', 'ea-dentistas'), $this->name)
+            'name'               => sprintf(__('%ss', 'iv'), $this->name),
+            'singular_name'      => sprintf(__('%s', 'iv'), $this->name),
+            'view_item'          => sprintf(__('Ver %s', 'iv'), $this->name),
+            'edit_item'          => sprintf(__('Editar %s', 'iv'), $this->name),
+            'search_items'       => sprintf(__('Pesquisar %s', 'iv'), $this->name),
+            'update_item'        => sprintf(__('Atualizar %s', 'iv'), $this->name),
+            'parent_item_colon'  => sprintf(__('%s Pai:', 'iv'), $this->name),
+            'menu_name'          => sprintf(__('%ss', 'iv'), $this->name),
+            'add_new'            => __('Adicionar Novo', 'iv'),
+            'add_new_item'       => sprintf(__('Adicionar Novo %s', 'iv'), $this->name),
+            'new_item'           => sprintf(__('Novo %s', 'iv'), $this->name),
+            'all_items'          => sprintf(__('Todos %ss', 'iv'), $this->name),
+            'not_found'          => sprintf(__('Nenhum %s encontrado', 'iv'), $this->name),
+            'not_found_in_trash' => sprintf(__('Nenhum %s encontrado na lixeira', 'iv'), $this->name)
         );
 
         return array_merge($default, $this->labels);

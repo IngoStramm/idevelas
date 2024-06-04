@@ -1,4 +1,12 @@
 <?php
+
+function iv_log_lead_errors($wp_error)
+{
+    $fn = ABSPATH . '/wp-content/lead.log';
+    $fp = fopen($fn, 'a');
+    fputs($fp, date('d/m/Y H:i:s') . " - Lead Error: " . $wp_error->get_error_message() . "\n");
+    fclose($fp);
+}
 function iv_get_field_value($name)
 {
     $value = isset($_POST[$name]) && !is_null($_POST[$name]) ? $_POST[$name] : null;
@@ -28,6 +36,24 @@ function iv_newsletter_form()
     $data = [];
     foreach ($fields as $name) {
         $data[$name] = iv_get_field_value($name);
+    }
+
+    // Salvar os leads no wp
+    $title = sprintf(__('Lead gerado pelo formulário de Newsletter a partir do e-mail "%s"', 'iv'), $data['email']);
+    $postarr = [
+        'post_title'        => $title,
+        'post_status'       => 'publish',
+        'post_type'         => 'lead',
+        'comment_status'    => 'closed',
+        'ping_status'       => 'closed',
+        'meta_input'        => array(
+            'lead_type'  => 'newsletter',
+            'lead_email'  => $data['email'],
+        )
+    ];
+    $lead_id = wp_insert_post($postarr, true);
+    if (is_wp_error($lead_id)) {
+        iv_log_lead_errors($lead_id);
     }
 
     $send_to_emails = iv_get_option('iv_newsletter_form_emails');

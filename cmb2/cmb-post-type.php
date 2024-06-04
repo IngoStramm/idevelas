@@ -195,3 +195,48 @@ function iv_cmb_produto_descricao()
         // 'show_option_none' => true,
     ));
 }
+
+add_action('cmb2_admin_init', 'iv_cmb_lead');
+
+function iv_cmb_lead()
+{
+    $cmb = new_cmb2_box(array(
+        'id'            => 'iv_lead_metabox',
+        'title'         => esc_html__('Dados do Lead', 'iv'),
+        'object_types'  => array('lead'), // Post type
+    ));
+
+
+    $cmb->add_field(array(
+        'name'       => '',
+        'id'         => 'iv_lead_title',
+        'type'       => 'title',
+        'after' => function () {
+            $post_id = get_the_ID();
+            $type = get_post_meta($post_id, 'lead_type', true);
+            $email = get_post_meta($post_id, 'lead_email', true);
+            $output = '';
+            $output .= '<table class="form-table">';
+            $output .= '<tbody>';
+            if ($type) {
+                $output .= sprintf(__('<tr><th scope="row">Tipo de lead</th><td>%s</td></tr>'), ucfirst($type));
+            }
+            if ($email) {
+                $user = get_user_by('email', $email);
+                if ($user) {
+                    $user_name = $user->display_name;
+                    if ($user->first_name) {
+                        $user_name = $user->last_name ? $user->first_name . ' ' . $user->last_name : $user->first_name;
+                    }
+                    $link = get_admin_url() . 'user-edit.php?user_id=' . $user->ID;
+                    $output .= sprintf(__('<tr><th>Nome</th><td><a href="%s">%s</a></td></tr>'), $link, $user_name);
+                }
+                $output .= sprintf(__('<tr><th>E-mail</th><td>%s</td></tr>'), $email);
+            }
+            $output .= sprintf(__('<tr><th>Data do lead</th><td>%s</td></tr>'), get_the_date('d/m/Y H:i:s'));
+            $output .= '</tbody>';
+            $output .= '</table>';
+            echo $output;
+        },
+    ));
+}
