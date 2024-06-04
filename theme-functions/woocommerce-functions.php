@@ -169,7 +169,7 @@ function iv_add_to_cart_btn()
         return;
     }
     $link = get_permalink($product_id);
-    printf('<a href="%s" class="iv-add-to-cart-btn">%s</a>', $link, __('Conhecer produto 👉', 'iv'));
+    printf('<a href="%s" class="iv-add-to-cart-btn">%s</a>', $link, __('Conhecer experiência 👉', 'iv'));
 }
 
 // add_filter('woocommerce_add_to_cart_redirect', 'iv_redirect_add_to_cart');

@@ -81,12 +81,12 @@ $categoria_pai = $categoria ? get_term($categoria->parent, 'product_cat') : null
                 <div class="row mb-5 vantagens-produto">
                     <div class="col-6 d-flex justify-content-center gap-2 align-items-center text-center">
                         <?php echo iv_get_icon('truck'); ?>
-                        <small><?php _e('Entregue no conforto<br/>de sua casa', 'iv'); ?></small>
+                        <small><?php _e('Entregue no conforto de sua casa', 'iv'); ?></small>
                     </div>
 
                     <div class="col-6 d-flex justify-content-center gap-2 align-items-center text-center">
                         <?php echo iv_get_icon('heart'); ?>
-                        <small><?php _e('Você vai amar cada<br/>detalhe da IDE', 'iv'); ?></small>
+                        <small><?php _e('Você vai amar cada detalhe da IDE', 'iv'); ?></small>
                     </div>
                 </div>
 
