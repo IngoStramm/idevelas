@@ -12,6 +12,22 @@ h6 {
     color: $dourado;
 }
 
+.site-header {
+    transition: box-shadow 200ms cubic-bezier(0.33, 1, 0.68, 1);
+    &.active {
+        box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.3);
+    }
+    a {
+        .whatsapp-icon {
+            svg {
+                width: 24px;
+                height: auto;
+                margin-left: -4px;
+            }
+        }
+    }
+}
+
 .dropdown-toggle {
     &::after {
         content: "";
@@ -38,8 +54,10 @@ h6 {
                 color: $azul-escuro;
             }
         }
-        .navbar-nav .dropdown-menu {
+        .navbar-nav .always-open .dropdown-menu {
             display: block;
+        }
+        .navbar-nav .dropdown-menu {
             border: none;
             margin: 0;
             padding: 0;
@@ -98,6 +116,11 @@ h6 {
     .offcanvas-footer {
         background-color: $cinza-claro;
         padding: 16px;
+    }
+}
+.no-link {
+    > a {
+        cursor: default;
     }
 }
 .redes-sociais {
@@ -172,7 +195,7 @@ h6 {
     .offcanvas-header {
         background-color: $cinza-claro;
         .mini-cart-frete-message {
-            font-size: .6em;
+            font-size: 0.6em;
             strong {
                 text-transform: uppercase;
             }
@@ -962,17 +985,19 @@ form.cart {
     align-items: center;
     flex-wrap: wrap;
 }
-
+// #navbarMenuPrincipal .offcanvas-body .navbar-nav .always-open .dropdown-menu
 @media (min-width: 768px) {
     #navbarMenuPrincipal {
         .offcanvas-body {
             padding: 0;
             a {
                 font-size: 1em;
+                padding-left: 8px;
             }
             .navbar-nav {
                 .dropdown-menu {
                     display: none;
+                    border-radius: 0;
                     &.show {
                         display: block;
                     }
@@ -980,6 +1005,65 @@ form.cart {
                     .sub-sub-menu {
                         display: block;
                     }
+                }
+                .always-open {
+                    .dropdown-menu {
+                        display: none;
+                    }
+                }
+                .menu-item-depth-0 {
+                    &:hover {
+                        .sub-menu {
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .nav-item {
+        .sub-sub-menu {
+            // display: none;
+            position: static !important;
+            left: 100%;
+            top: -7px;
+        }
+        &.menu-item-depth-0 {
+            > a {
+                position: relative;
+                transition: all 0.2s;
+                &::before {
+                    transition: all 0.2s;
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    width: 0%;
+                    transform: translate(-50%, 0);
+                    border-bottom: solid 1px;
+                }
+            }
+            &:hover {
+                .dropdown-menu {
+                    box-shadow: 0 3px 5px 0px rgba(0, 0, 0, 0.2);
+                }
+                > a {
+                    margin-top: -5px;
+                    &::before {
+                        width: 70%;
+                    }
+                }
+            }
+        }
+    }
+    .dropdown-item {
+        &:not(.no-link) {
+            > a {
+                position: relative;
+                transition: all 0.2s;
+                &:hover {
+                    text-indent: 5px;
                 }
             }
         }
@@ -1036,12 +1120,6 @@ form.cart {
 
     .dropdown-menu li {
         position: relative;
-    }
-    .nav-item .sub-sub-menu {
-        // display: none;
-        position: static !important;
-        left: 100%;
-        top: -7px;
     }
     .nav-item .sub-menu-left {
         right: 100%;

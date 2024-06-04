@@ -108,7 +108,7 @@ if (!function_exists('iv_paging_nav')) {
  */
 function iv_version()
 {
-    $version = '1.0.17';
+    $version = '1.0.20';
     return $version;
 }
 

@@ -94,7 +94,9 @@ class Iv_Walker_Nav_Menu extends Walker_Nav_Menu
         $attributes .= !empty($item->url)        ? ' href="'   . esc_attr($item->url) . '"' : '';
         $attributes .= ' class="' . implode(' ', $a_classes_names) . '"';
 
-        $attributes .= $depth === 0 && in_array('dropdown', $classes) ? ' role="button" data-bs-toggle="dropdown" aria-expanded="false"' : '';
+        // $attributes .= $depth === 0 && in_array('dropdown', $classes) ? ' role="button" data-bs-toggle="dropdown" aria-expanded="false"' : '';
+
+        $attributes .= $depth === 0 && in_array('dropdown', $classes) ? ' role="button"' : '';
 
         $attributes .= in_array('current-menu-item', $classes) ? ' aria-current="page"' : '';
 

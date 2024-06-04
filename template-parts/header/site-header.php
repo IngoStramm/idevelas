@@ -23,7 +23,8 @@ $login_page_id = iv_get_page_id('login');
                 <?php get_search_form(); ?>
             </div>
 
-            <?php // get_template_part('template-parts/header/site-header-order', 'track'); ?>
+            <?php // get_template_part('template-parts/header/site-header-order', 'track'); 
+            ?>
 
             <?php get_template_part('template-parts/header/site-header', 'whatsapp'); ?>
 
@@ -90,36 +91,36 @@ $login_page_id = iv_get_page_id('login');
                                 </a>
                             </li>
                         </ul>
-                        <ul class="redes-sociais d-flex align-center justify-content-start gap-4 mt-2">
+                        <ul class="redes-sociais d-flex flex-column align-center justify-content-start gap-2 mt-2">
                             <?php
                             $whatsapp = iv_get_option('iv_whatsapp');
                             if ($whatsapp) { ?>
-                                <li><a href="https://wa.me/<?php echo preg_replace('~\D~', '', $whatsapp); ?>" target="_blank"><?php echo iv_get_icon('whatsapp'); ?></a></li>
+                                <li class="d-flex align-items-center justify-content-start"><a class="d-flex align-items-center justify-content-start gap-3" href="https://wa.me/<?php echo preg_replace('~\D~', '', $whatsapp); ?>" target="_blank"><span class="whatsapp-icon"><?php echo iv_get_icon('whatsapp'); ?></span><span><?php _e('WhatsApp', 'iv'); ?></span></a></li>
                             <?php } ?>
                             <?php
                             $facebook = iv_get_option_social_media('iv_facebook');
                             if ($facebook) { ?>
-                                <li><a href="<?php echo $facebook; ?>" target="_blank"><?php echo iv_get_icon('facebook'); ?></a></li>
+                                <li class="d-flex align-items-center justify-content-start"><a class="d-flex align-items-center justify-content-start gap-3" href="<?php echo $facebook; ?>" target="_blank"><?php echo iv_get_icon('facebook'); ?><span><?php _e('Facebook', 'iv'); ?></span></a></li>
                             <?php } ?>
                             <?php
                             $instagram = iv_get_option_social_media('iv_instagram');
                             if ($instagram) { ?>
-                                <li><a href="<?php echo $instagram; ?>" target="_blank"><?php echo iv_get_icon('instagram'); ?></a></li>
+                                <li class="d-flex align-items-center justify-content-start"><a class="d-flex align-items-center justify-content-start gap-3" href="<?php echo $instagram; ?>" target="_blank"><?php echo iv_get_icon('instagram'); ?><span><?php _e('Instagram', 'iv'); ?></span></a></li>
                             <?php } ?>
                             <?php
                             $youtube = iv_get_option_social_media('iv_youtube');
                             if ($youtube) { ?>
-                                <li><a href="<?php echo $youtube; ?>" target="_blank"><?php echo iv_get_icon('youtube'); ?></a></li>
+                                <li class="d-flex align-items-center justify-content-start"><a class="d-flex align-items-center justify-content-start gap-3" href="<?php echo $youtube; ?>" target="_blank"><?php echo iv_get_icon('youtube'); ?><span><?php _e('Youtube', 'iv'); ?></span></a></li>
                             <?php } ?>
                             <?php
                             $tiktok = iv_get_option_social_media('iv_tiktok');
                             if ($tiktok) { ?>
-                                <li><a href="<?php echo $tiktok; ?>" target="_blank"><?php echo iv_get_icon('tiktok'); ?></a></li>
+                                <li class="d-flex align-items-center justify-content-start"><a class="d-flex align-items-center justify-content-start gap-3" href="<?php echo $tiktok; ?>" target="_blank"><?php echo iv_get_icon('tiktok'); ?><span><?php _e('Tik Tok', 'iv'); ?></span></a></li>
                             <?php } ?>
                             <?php
                             $twitter = iv_get_option_social_media('iv_twitter');
                             if ($twitter) { ?>
-                                <li><a href="<?php echo $twitter; ?>" target="_blank"><?php echo iv_get_icon('twitter'); ?></a></li>
+                                <li class="d-flex align-items-center justify-content-start"><a class="d-flex align-items-center justify-content-start gap-3" href="<?php echo $twitter; ?>" target="_blank"><?php echo iv_get_icon('twitter'); ?><span><?php _e('Twitter', 'iv'); ?></span></a></li>
                             <?php } ?>
                         </ul>
                     <?php } ?>
