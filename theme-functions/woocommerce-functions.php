@@ -41,7 +41,10 @@ function iv_format_sale_price($price, $regular_price, $sale_price)
     $saving_percentage = round(100 - ($sale_price / $regular_price * 100), 1) . '%';
     $saving_numeric = $regular_price - $sale_price;
 
-    $texto_parcelamento = get_post_meta(get_the_ID(), 'iv_product_parcelamento', true);
+    // $texto_parcelamento = get_post_meta(get_the_ID(), 'iv_product_parcelamento', true);
+    $valor_parcelamento = round($sale_price / 3, 2, PHP_ROUND_HALF_UP);
+
+    $texto_parcelamento = sprintf(__('3x sem juros de %s', 'iv'), wc_price($valor_parcelamento));
 
     // Strikethrough pricing.
     $price = '<li class="regular-price">' . __('DE', 'iv') . ': <del>' . $formatted_regular_price . '</del></li>';
@@ -222,4 +225,14 @@ add_filter('woocommerce_continue_shopping_redirect', 'iv_woocommerce_return_to_s
 function iv_woocommerce_return_to_shop_redirect()
 {
     return home_url();
+}
+
+add_filter('woocommerce_get_stock_html', 'iv_wc_hide_in_stock_message', 10, 2);
+function iv_wc_hide_in_stock_message($html, $product)
+{
+    $availability = $product->get_availability();
+    if (isset($availability['class']) && 'in-stock' === $availability['class']) {
+        return '';
+    }
+    return $html;
 }

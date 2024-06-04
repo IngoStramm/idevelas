@@ -11,11 +11,11 @@ function iv_cmb_produto_opcoes()
     ));
 
 
-    $cmb->add_field(array(
-        'name'       => esc_html__('Texto de parcelamento', 'iv'),
-        'id'         => 'iv_product_parcelamento',
-        'type'       => 'text',
-    ));
+    // $cmb->add_field(array(
+    //     'name'       => esc_html__('Texto de parcelamento', 'iv'),
+    //     'id'         => 'iv_product_parcelamento',
+    //     'type'       => 'text',
+    // ));
 
     $cmb->add_field(array(
         'name'       => esc_html__('Avaliação do produto', 'iv'),
