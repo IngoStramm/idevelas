@@ -241,7 +241,13 @@ add_filter('woocommerce_order_button_text', 'iv_checkout_button_text');
 
 function iv_checkout_button_text()
 {
-    return __('Finalização de compra', 'iv');
+    return __('Finalizar compra', 'iv');
+}
+
+function woocommerce_widget_shopping_cart_proceed_to_checkout()
+{
+    $wp_button_class = wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : '';
+    echo '<a href="' . esc_url(wc_get_checkout_url()) . '" class="button checkout wc-forward' . esc_attr($wp_button_class) . '">' . __('Finalizar compra', 'iv') . '</a>';
 }
 
 add_action('woocommerce_cart_calculate_fees', 'iv_shipping_method_discount', 20, 1);
