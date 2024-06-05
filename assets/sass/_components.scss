@@ -18,7 +18,8 @@ h6 {
         box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.3);
     }
     a {
-        .whatsapp-icon {
+        .whatsapp-icon,
+        .user-icon {
             svg {
                 width: 24px;
                 height: auto;
@@ -116,6 +117,7 @@ h6 {
     .offcanvas-footer {
         background-color: $cinza-claro;
         padding: 16px;
+        @include offcanvas-footer-padding-bottom
     }
 }
 .no-link {
@@ -307,6 +309,7 @@ h6 {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            margin-bottom: 5px;
             .woocommerce-Price-amount {
                 &.amount {
                     font-weight: 700;
@@ -322,6 +325,7 @@ h6 {
         z-index: 9;
         background-color: $cinza-claro;
         padding: 16px;
+        @include offcanvas-footer-padding-bottom;
         .minicart-footer-text {
             display: flex;
             align-items: center;
@@ -851,7 +855,7 @@ form.cart {
 }
 
 .ide {
-    background-color: $branco;
+    background-color: $cinza-claro;
     padding-block: 80px;
     margin-bottom: -3rem;
     h4,
@@ -908,6 +912,9 @@ form.cart {
     margin-top: 40px;
     margin-bottom: 20px;
     color: $azul;
+    &.product_title {
+        margin-top: 0;
+    }
 }
 
 .woocommerce form .form-row input.input-text,

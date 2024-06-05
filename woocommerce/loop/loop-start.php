@@ -20,4 +20,4 @@ if (!defined('ABSPATH')) {
     exit;
 }
 ?>
-<div class="row w-100 gap-4">
+<div class="row">

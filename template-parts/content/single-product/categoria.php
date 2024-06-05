@@ -12,7 +12,7 @@ if (isset($args['cat']) && $args['cat']) { ?>
         <div class="container">
             <div class="row align-items-center">
 
-                <div class="col-lg-6 d-flex flex-column gap-5 px-lg-5">
+                <div class="col-lg-6 d-flex flex-column gap-4 px-lg-5 mb-5 mb-lg-0">
                     <?php if ($term_logo) { ?>
                         <img class="img-fluid" src="<?php echo $term_logo; ?>" alt="<?php echo $cat->name; ?>">
                     <?php } ?>

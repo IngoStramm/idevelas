@@ -40,7 +40,7 @@ $login_page_id = iv_get_page_id('login');
                     <li class="d-none d-md-block">
                         <a href="<?php echo get_permalink(get_option('woocommerce_myaccount_page_id')); ?>" class="nav-link d-block text-center px-2">
                             <?php echo iv_get_icon('user-account'); ?>
-                            <?php echo is_user_logged_in() ? _e('Minha Conta', 'iv') : __('Entrar/Cadastrar'); ?>
+                            <?php echo iv_text_login_btn(); ?>
                         </a>
                     </li>
                 <?php } ?>
@@ -83,15 +83,15 @@ $login_page_id = iv_get_page_id('login');
                 </div>
                 <div class="offcanvas-footer d-md-none">
                     <?php if (get_option('woocommerce_myaccount_page_id')) { ?>
-                        <ul class="navbar-nav me-auto d-block ms-4">
+                        <ul class="navbar-nav me-auto d-block mb-2">
                             <li class="nav-item">
-                                <a href="<?php echo get_permalink(get_option('woocommerce_myaccount_page_id')); ?>" class="nav-link main-menu-link">
-                                    <?php echo iv_get_icon('user-account'); ?>
-                                    <?php echo is_user_logged_in() ? get_the_title(get_option('woocommerce_myaccount_page_id')) : __('Entrar', 'iv'); ?>
+                                <a class="d-flex align-items-center justify-content-start gap-3" href="<?php echo get_permalink(get_option('woocommerce_myaccount_page_id')); ?>" class="nav-link main-menu-link">
+                                    <span class="user-icon"><?php echo iv_get_icon('user-account'); ?></span>
+                                    <?php echo iv_text_login_btn(); ?>
                                 </a>
                             </li>
                         </ul>
-                        <ul class="redes-sociais d-flex flex-column align-center justify-content-start gap-2 mt-2">
+                        <ul class="redes-sociais d-flex flex-column align-center justify-content-start gap-2">
                             <?php
                             $whatsapp = iv_get_option('iv_whatsapp');
                             if ($whatsapp) { ?>

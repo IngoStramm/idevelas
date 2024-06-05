@@ -104,7 +104,7 @@ if (!function_exists('iv_paging_nav')) {
 /**
  * iv_version
  *
-* @return string
+ * @return string
  */
 function iv_version()
 {
@@ -154,6 +154,11 @@ function iv_get_option_scripts($key = '')
 function iv_get_option_social_media($key = '')
 {
     return iv_get_option($key, 'iv_social_media_options');
+}
+
+function iv_get_option_discount($key = '')
+{
+    return iv_get_option($key, 'iv_discount_options');
 }
 
 
@@ -265,4 +270,25 @@ function iv_get_wysiwyg_output($meta_key, $post_id = 0)
     $content = do_shortcode($content);
 
     return $content;
+}
+
+function iv_get_user_name()
+{
+    $user = wp_get_current_user();
+    $nome = $user->first_name && $user->last_name ?
+        $user->first_name . ' ' . $user->last_name :
+        $user->display_name;
+    return $nome;
+}
+
+function iv_text_login_btn()
+{
+    $output = '';
+    if (is_user_logged_in()) {
+        $nome = iv_get_user_name();
+        $output = sprintf(__('Olá, %s', 'iv'), $nome);
+    } else {
+        $output = __('Entrar/Cadastrar', 'iv');
+    }
+    return $output;
 }

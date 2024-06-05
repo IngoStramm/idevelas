@@ -236,3 +236,58 @@ function iv_wc_hide_in_stock_message($html, $product)
     }
     return $html;
 }
+
+add_filter('woocommerce_order_button_text', 'iv_checkout_button_text');
+
+function iv_checkout_button_text()
+{
+    return __('Finalização de compra', 'iv');
+}
+
+add_action('woocommerce_cart_calculate_fees', 'iv_shipping_method_discount', 20, 1);
+function iv_shipping_method_discount($cart_object)
+{
+
+    if (is_admin() && !defined('DOING_AJAX')) return;
+
+    $percent = iv_get_option_discount('iv_pct_discount');
+    $payment_method = iv_get_option_discount('iv_id_discount');
+    $label_text = iv_get_option_discount('iv_text_discount');
+    if (!$percent) {
+        return;
+    }
+
+    if (!$payment_method) {
+        return;
+    }
+
+    if (!$label_text) {
+        return;
+    }
+
+    $cart_total = $cart_object->subtotal_ex_tax;
+    $chosen_payment_method = WC()->session->get('chosen_payment_method');
+    $installed_payment_methods = WC()->payment_gateways()->payment_gateways();
+
+    if ($payment_method == $chosen_payment_method) {
+        // Calculation
+        $discount = number_format(($cart_total / 100) * $percent, 2);
+        // Add the discount
+        $cart_object->add_fee($label_text, -$discount, false);
+    }
+}
+
+add_action('woocommerce_review_order_before_payment', 'iv_refresh_payment_methods');
+function iv_refresh_payment_methods()
+{
+    // jQuery code
+?>
+    <script type="text/javascript">
+        (function($) {
+            $('form.checkout').on('change', 'input[name^="payment_method"]', function() {
+                $('body').trigger('update_checkout');
+            });
+        })(jQuery);
+    </script>
+<?php
+}

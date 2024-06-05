@@ -25,8 +25,8 @@ do_action('woocommerce_before_mini_cart'); ?>
 <div class="offcanvas-header">
     <h5 class="offcanvas-title d-flex align-items-center" id="offcanvasMinicartLabel">
         <?php echo iv_logo(); ?>
-        <span class="mini-cart-frete-message mx-auto"><?php printf('<strong>%s</strong>%s', __('Frete grátis', 'iv'), __(' acima de R$ 400,00', 'iv')) ?></span>
     </h5>
+    <span class="mini-cart-frete-message mx-auto"><?php printf('<strong>%s</strong> %s <strong>%s</strong>', __('10%', 'iv'), __('DE DESCONTO NO', 'iv'), __('PIX', 'iv')) ?></span>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 </div>
 
@@ -114,9 +114,20 @@ do_action('woocommerce_before_mini_cart'); ?>
             do_action('woocommerce_widget_shopping_cart_total');
             ?>
         </p>
-        <div class="minicart-footer-text">
-            <?php echo iv_get_icon('lock'); ?>
-            <?php _e('Pagamento Seguro', 'iv'); ?>
+        <div class="minicart-footer-text d-flex justify-content-between align-items-center">
+            <span>
+                <?php echo iv_get_icon('lock'); ?>
+                <?php _e('Pagamento Seguro', 'iv'); ?>
+            </span>
+            <?php
+            $get_cart_subtotal = WC()->cart->get_cart_subtotal();
+            $get_cart_subtotal = strip_tags($get_cart_subtotal);
+            $get_cart_subtotal = preg_replace('/&#?[a-z0-9]+;/i', '', $get_cart_subtotal);
+            $unformatted_subtotal = WC()->cart->subtotal;
+            $valor_parcelamento = round($unformatted_subtotal / 3, 2, PHP_ROUND_HALF_UP);
+            $texto_parcelamento = sprintf(__('3x sem juros de %s', 'iv'), wc_price($valor_parcelamento));
+            ?>
+            <span class="texto-parcelamento"><?php echo $texto_parcelamento; ?></span>
         </div>
     </div>
 <?php else : ?>
@@ -127,8 +138,10 @@ do_action('woocommerce_before_mini_cart'); ?>
     </div>
     <div class="offcanvas-footer">
         <div class="minicart-footer-text">
-            <?php echo iv_get_icon('lock'); ?>
-            <?php _e('Pagamento Seguro', 'iv'); ?>
+            <span>
+                <?php echo iv_get_icon('lock'); ?>
+                <?php _e('Pagamento Seguro', 'iv'); ?>
+            </span>
         </div>
     </div>
 
